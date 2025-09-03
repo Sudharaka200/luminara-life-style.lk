@@ -1,9 +1,367 @@
-import React from 'react'
+"use client"
+
+import { useEffect, useState } from "react"
 
 function Page() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
-    <div>
-      <h1>Lifestyle</h1>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-white py-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div
+              className={`space-y-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight drop-shadow-lg hover:drop-shadow-xl transition-all duration-500 hover:scale-105 transform">
+                Effortless Living with <span className="text-blue-600 drop-shadow-md animate-pulse">Luminara</span>
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed drop-shadow-sm hover:text-gray-700 transition-all duration-300">
+                Owning a property with Luminara is more than just investment —it's a lifestyle. Our comprehensive
+                services ensure worry-free ownership, letting you enjoy your home while we handle the details, from
+                maintenance to wellness.
+              </p>
+            </div>
+
+            {/* Right Image */}
+            <div
+              className={`relative transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+            >
+              <img
+                src="https://i.postimg.cc/J7qF307N/Rectangle-199.png"
+                alt="Luminara Buildings"
+                className="w-full h-auto rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500 transform"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 px-4 md:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className={`text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 drop-shadow-lg hover:drop-shadow-xl hover:scale-105 transform transition-all duration-1000 delay-500 animate-pulse ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
+            Our Lifestyle & Maintenance Services
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Property Management */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "600ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/ncSw5WDM/system-1.png"
+                    alt="Property Management"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  Property Management
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Comprehensive property management including regular cleaning, repairs, and maintenance, ensuring your
+                  home stays in pristine condition year-round.
+                </p>
+              </div>
+            </div>
+
+            {/* Gardening & Landscaping */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "700ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/VkSHcFqg/gardening-1.png"
+                    alt="Gardening & Landscaping"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  Gardening & Landscaping
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Professional landscaping and garden care, keeping your outdoor spaces beautiful and inviting without
+                  you lifting a finger.
+                </p>
+              </div>
+            </div>
+
+            {/* 24/7 Security & Smart Access */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "800ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/sgtHfZKr/helpline-1.png"
+                    alt="24/7 Security & Smart Access"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  24/7 Security & Smart Access
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Round-the-clock security with smart access systems, CCTV monitoring, and trained personnel to ensure
+                  safety for you and your guests.
+                </p>
+              </div>
+            </div>
+
+            {/* Wellness & Recreation */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "900ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/d1FWrPzN/heart-1.png"
+                    alt="Wellness & Recreation"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  Wellness & Recreation
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Access to exclusive clubhouses, pools, spas, and fitness facilities—designed to enhance your health
+                  and relaxation.
+                </p>
+              </div>
+            </div>
+
+            {/* Resort Operations / Rental Management */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "1000ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/HnsBv0WQ/rental-service-1.png"
+                    alt="Resort Operations / Rental Management"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  Resort Operations / Rental Management
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Full-service cabana and property rental management, including guest handling, bookings, payments, and
+                  housekeeping, maximizing your returns.
+                </p>
+              </div>
+            </div>
+
+            {/* Customization & Furnishing Services */}
+            <div
+              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "1100ms" }}
+            >
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <img
+                    src="https://i.postimg.cc/x1HyRpGw/handyman-1.png"
+                    alt="Customization & Furnishing Services"
+                    className="w-12 h-12"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  Customization & Furnishing Services
+                </h3>
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  Tailor your property to your taste with bespoke furnishing, upgrades, and interior customization
+                  services.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Packages Section */}
+      <section className="py-16 px-4 md:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div
+            className={`text-center mb-16 transition-all duration-1000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-lg hover:drop-shadow-xl hover:scale-105 transform transition-all duration-500 animate-pulse">
+              Lifestyle Service Packages
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto drop-shadow-sm hover:text-gray-700 transition-all duration-300">
+              Choose from tailored service plans designed to keep your property secure, maintained, and enjoyable—so you
+              can focus on living while we handle the rest.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Package 1 */}
+            <div
+              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "1300ms" }}
+            >
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                    <img
+                      src="https://i.postimg.cc/HxLyf65s/verify-1.png"
+                      alt="Essential Care Package"
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                    Essential Care Package
+                  </h3>
+                  <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                    Perfect for owners who want peace of mind with the basics covered.
+                  </p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Property Management (cleaning, repairs, inspections)</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">24/7 Security & Smart Access</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Gardening & Landscaping</span>
+                  </div>
+                </div>
+
+                <div className="text-center mb-6">
+                  <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                    $150/month
+                  </p>
+                </div>
+
+                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                  Schedule Free Consultation
+                </button>
+              </div>
+            </div>
+
+            {/* Package 2 */}
+            <div
+              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "1400ms" }}
+            >
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                    <img
+                      src="https://i.postimg.cc/HxLyf65s/verify-1.png"
+                      alt="Essential Care Package"
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                    Essential Care Package
+                  </h3>
+                  <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                    Perfect for owners who want peace of mind with the basics covered.
+                  </p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Property Management (cleaning, repairs, inspections)</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">24/7 Security & Smart Access</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Gardening & Landscaping</span>
+                  </div>
+                </div>
+
+                <div className="text-center mb-6">
+                  <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                    $150/month
+                  </p>
+                </div>
+
+                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                  Schedule Free Consultation
+                </button>
+              </div>
+            </div>
+
+            {/* Package 3 */}
+            <div
+              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: "1500ms" }}
+            >
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                    <img
+                      src="https://i.postimg.cc/HxLyf65s/verify-1.png"
+                      alt="Essential Care Package"
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                    Essential Care Package
+                  </h3>
+                  <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                    Perfect for owners who want peace of mind with the basics covered.
+                  </p>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Property Management (cleaning, repairs, inspections)</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">24/7 Security & Smart Access</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Gardening & Landscaping</span>
+                  </div>
+                </div>
+
+                <div className="text-center mb-6">
+                  <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                    $150/month
+                  </p>
+                </div>
+
+                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                  Schedule Free Consultation
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
