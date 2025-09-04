@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import userRoutes from './router/UserRoutes.js'; 
+import realestateRoutes from './router/RealestateRoutes.js'
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/users', userRoutes); 
+app.use('/post', realestateRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
