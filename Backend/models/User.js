@@ -21,11 +21,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 8,
-    }
+    },
 }, {
-    timestamps: true, // Automatically adds createdAt and updatedAt fields
-}
-
-);
-
+    timestamps: true,
+});
 export default mongoose.model("UserData", userSchema);
