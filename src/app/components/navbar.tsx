@@ -32,7 +32,7 @@ function Navbar() {
                             <Link className='ml-10' href="/Stories">Stories</Link>
                             <Link className='ml-10' href="/Guide">Guide</Link>
                             <Link className='ml-10' href="/Connect">Connect</Link>
-                            <Link className='ml-10' href="/Connect">Resources</Link>
+                            <Link className='ml-10' href="/Resources">Resources</Link>
                         </div>
                     </div>
                 </div>
