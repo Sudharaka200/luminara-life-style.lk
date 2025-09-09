@@ -7,11 +7,12 @@ import ShopsIcon from './images/store 1.png'
 import OtherIcon from './images/real-estate 1.png'
 import section1Img from './images/Group 172.png'
 import CategorySwiper from './components/categorySwiper';
-import Propertycard from './components/card'
+import Propertycard from './components/card';
+import ImageSlider from './components/imageslider';
 
 export default function Home() {
   return (
-    <div className="">
+    <>
       <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./images/bg-img.png')" }}>
         {/* Desktop */}
         <div className='bg-white/60 backdrop-blur-md border border-white/30 rounded-2xl p-8 w-full max-w-4xl'>
@@ -169,44 +170,131 @@ export default function Home() {
         </div>
       </div>
       <div className='container mx-auto p-4'>
-        <Propertycard
-          title="EXPRESS FIVE - MATTEGODA"
-          location="Borella"
-          price="39,500,000"
-          image="/images/Rectangle 103.png"
-          beds={3}
-          baths={1}
-          link="/property/express-five"
-        />
-        <Propertycard
-          title="EXPRESS FIVE - MATTEGODA"
-          location="Borella"
-          price="39,500,000"
-          image="/images/Rectangle 103.png"
-          beds={3}
-          baths={1}
-          link="/property/express-five"
-        />
-        <Propertycard
-          title="EXPRESS FIVE - MATTEGODA"
-          location="Borella"
-          price="39,500,000"
-          image="/images/Rectangle 103.png"
-          beds={3}
-          baths={1}
-          link="/property/express-five"
-        />
-        <Propertycard
-          title="EXPRESS FIVE - MATTEGODA"
-          location="Borella"
-          price="39,500,000"
-          image="/images/Rectangle 103.png"
-          beds={3}
-          baths={1}
-          link="/property/express-five"
-        />
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-5'>
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+        </div>
       </div>
       {/* Section 3 */}
-    </div>
+
+      {/* Section 5 */}
+      <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./images/Group 173.png')" }}>
+        {/* Desktop */}
+        <div className='text-center text-white'>
+          <h1 className='text-2xl'>Why Investors Choose Luminara First ?</h1>
+          <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
+        </div>
+      </div>
+      {/* Section 5 */}
+
+      {/* Section 6 */}
+      <div className='container mx-auto p-4'>
+        <div>
+          <h1 className='text-2xl'>Our Portfolio</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever </p>
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-5'>
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+          <Propertycard
+            title="EXPRESS FIVE - MATTEGODA"
+            location="Borella"
+            price="39,500,000"
+            image="/images/Rectangle 103.png"
+            beds={3}
+            baths={1}
+            link="/property/express-five"
+          />
+        </div>
+      </div>
+      {/* Section 6 */}
+
+      {/* Section 7 */}
+      <div>
+        <div className='text-center'>
+          <h1 className='text-2xl'>Discover Luxury Living With Luminara Lifestyle; One of the Leading name in Sri Lanka Real Estate!</h1>
+        </div>
+        <ImageSlider />
+      </div>
+      {/* Section 7 */}
+
+      {/* Section 8 */}
+      <div className=''>
+        <div className='container mx-auto p-4'>
+          <h1 className='text-2xl'>Testimonials</h1>
+          <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
+        </div>
+      </div>
+      {/* Section 8 */}
+
+      {/* Section 9 */}
+      <div className='container mx-auto p-4'>
+        <h1 className='text-2xl'>News</h1>
+        <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
+      </div>
+      {/* Section 9 */}
+
+
+
+    </>
   );
 }
