@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import React from 'react'
 import Menulinks from './MenuLinks'
@@ -17,7 +16,7 @@ function Navbar() {
                 </div>
 
                 {/* Desktop*/}
-                <div className='hidden md:flex items-center justify-between gap-8 h-full w-full'>
+                <div className='hidden md:flex items-center justify-between gap-8 h-full w-full overflow-hidden'>
                     <div className='w-1/3'>
                         <Link href="/">
                             <Image src={Logo} alt='Main-logo' className='' />
