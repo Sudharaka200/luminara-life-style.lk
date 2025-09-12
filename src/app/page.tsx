@@ -9,6 +9,8 @@ import section1Img from './images/Group 172.png'
 import CategorySwiper from './components/categorySwiper';
 import Propertycard from './components/card';
 import ImageSlider from './components/imageslider';
+import NewsImg from '../../public/images/Rectangle 136.png';
+import NewsCard from './components/newsCard';
 
 export default function Home() {
   return (
@@ -96,7 +98,8 @@ export default function Home() {
                   </div>
                   <div>
 
-                    {/* section 2 */}       <h1 className='text-5xl font-bold text-white'>5K+</h1>
+                    {/* section 2 */}
+                    <h1 className='text-5xl font-bold text-white'>5K+</h1>
                     <p className='text-white'>Happy Investors</p>
                   </div>
                   <div>
@@ -290,6 +293,42 @@ export default function Home() {
       <div className='container mx-auto p-4'>
         <h1 className='text-2xl'>News</h1>
         <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
+
+        {/* News */}
+        <div className='container'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <div>
+              <Image src={NewsImg} alt='News Image' />
+            </div>
+
+            <div>
+              <h1>Commission Flexibility and Savings</h1>
+              <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-1 mt-5'>
+          <NewsCard
+            title="Commission Flexibility and Savings"
+            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
+            image="/images/Rectangle 137.png"
+            />
+
+            <NewsCard
+            title="Commission Flexibility and Savings"
+            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
+            image="/images/Rectangle 137.png"
+            />
+
+            <NewsCard
+            title="Commission Flexibility and Savings"
+            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
+            image="/images/Rectangle 137.png"
+            />
+        </div>
+        {/* News */}
       </div>
       {/* Section 9 */}
 
