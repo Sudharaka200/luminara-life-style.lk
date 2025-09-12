@@ -9,6 +9,9 @@ import Section3Img from '@/app/images/Rectangle 146.png';
 import Certificate1 from '@/app/images/—Pngtree—gold best award medal with_9015057.png';
 import Certificate2 from '@/app/images/—Pngtree—vector certified professional badge_2069356.png';
 import Certificate3 from '@/app/images/—Pngtree—vector certified professional badge_s2069356.png';
+import CEOImg from '@/app/images/Rectangle 147.png';
+import LinkedinLogo from '@/app/images/linkedin 1.png';
+import ManagerImg from '@/app/images/Rectangle 150.png';
 
 function Page() {
   return (
@@ -103,29 +106,77 @@ function Page() {
 
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-1'>
           <div>
-             <Image src={Certificate1} alt='certificate1' />
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate1} alt='certificate1' />
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
 
           <div>
-             <Image src={Certificate2} alt='certificate1' />
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate2} alt='certificate1' />
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
 
           <div>
-             <Image src={Certificate3} alt='certificate1' />
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate3} alt='certificate1' />
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
         </div>
       </div>
       {/* area 5 */}
 
       {/* area 6 */}
-      <div className='container mx-auto'> 
+      <div className='container mx-auto'>
         <div>
-          <h1>Our Trusted Partners</h1>
+          <h1>The Faces Behind Our Success</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-1'>
-            
+            <div>
+              <Image src={CEOImg} alt='CEO' />
+            </div>
+            <div>
+              <div className='flex gap-1'>
+                <Image src={LinkedinLogo} alt='linkedin' />
+                <h1>CEO</h1>
+              </div>
+              <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
+              <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
+            </div>
+          </div>
+        </div>
+
+        <div className='grid grid-cols-1 sm:grid-cols-4 gap-1'>
+          <div>
+            <Image src={ManagerImg} alt='Manager' />
+            <div className='flex gap-1'>
+              <Image src={LinkedinLogo} alt='linkedin' />
+              <h1>CEO</h1>
+            </div>
+            <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
+          </div>
+
+          <div>
+            <Image src={ManagerImg} alt='Manager' />
+            <div className='flex gap-1'>
+              <Image src={LinkedinLogo} alt='linkedin' />
+              <h1>CEO</h1>
+            </div>
+            <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
+          </div>
+
+          <div>
+            <Image src={ManagerImg} alt='Manager' />
+            <div className='flex gap-1'>
+              <Image src={LinkedinLogo} alt='linkedin' />
+              <h1>CEO</h1>
+            </div>
+            <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
+          </div>
+
+          <div>
+            <Image src={ManagerImg} alt='Manager' />
+            <div className='flex gap-1'>
+              <Image src={LinkedinLogo} alt='linkedin' />
+              <h1>CEO</h1>
+            </div>
+            <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
         </div>
       </div>
