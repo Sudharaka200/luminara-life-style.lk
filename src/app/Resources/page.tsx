@@ -348,7 +348,7 @@ export default function ResourcesPage() {
               Need Help?
             </h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              If you're having trouble downloading any resources or need additional information, our expert support team
+              If youre having trouble downloading any resources or need additional information, our expert support team
               is here to help you succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
