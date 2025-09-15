@@ -18,14 +18,14 @@ function Page() {
     <>
       <div className='bg-[#C5C9D5]'>
         <div className='container mx-auto '>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-1'>
-            <div className='items-center justify-center'>
-              <Image src={Logo} alt='dad' />
-              <h1>Your Trusted Partner in  <br /> Real Estate</h1>
-              <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—client</p>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-1 pt-20 pb-20'>
+            <div className='items-center justify-center '>
+              <Image src={Logo} alt='dad' className='mt-5 ' />
+              <h1 className='text-5xl font-bold mt-5'>Your Trusted Partner in  <br /> <span className="text-[#086FB1]">Real Estate</span></h1>
+              <p className='lg:pr-30'>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—client</p>
             </div>
             <div>
-              <Image src={Section1Img} alt='dad' />
+              <Image src={Section1Img} alt='dad' className='rounded-md' />
             </div>
           </div>
         </div>
@@ -33,28 +33,28 @@ function Page() {
 
       {/* area 2 */}
       <div className='bg-[#086FB1]'>
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-20'>
           <div className='text-center'>
-            <h1>Keys To your New Begining</h1>
-            <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by</p>
+            <h1 className='text-4xl text-white font-bold'>Keys To your New Begining</h1>
+            <p className='lg:px-60 text-white py-2'>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by</p>
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-3 gap-1'>
-            <div className='bg-[#fff] flex flex-col justify-center text-center items-center'>
+          <div className='grid grid-cols-1 sm:grid-cols-3 gap-10 py-10'>
+            <div className='bg-[#fff] flex flex-col justify-center text-center items-center py-20 rounded-sm'>
               <Image src={Icon} alt='icon' />
-              <h1>Evaluate Property</h1>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever </p>
+              <h1 className='text-2xl font-bold mt-2'>Evaluate Property</h1>
+              <p className='px-15'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever </p>
             </div>
 
-            <div className='bg-[#fff] flex flex-col justify-center text-center items-center'>
+            <div className='bg-[#fff] flex flex-col justify-center text-center items-center py-20 rounded-sm'>
               <Image src={Icon} alt='icon' />
-              <h1>Evaluate Property</h1>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrs standard dummy text ever </p>
+              <h1 className='text-2xl font-bold mt-2'>Evaluate Property</h1>
+              <p className='px-15'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrs standard dummy text ever </p>
             </div>
 
-            <div className='bg-[#fff] flex flex-col justify-center text-center items-center'>
+            <div className='bg-[#fff] flex flex-col justify-center text-center items-center py-20 rounded-sm'>
               <Image src={Icon} alt='icon' />
-              <h1>Evaluate Property</h1>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever </p>
+              <h1 className='text-2xl font-bold mt-2'>Evaluate Property</h1>
+              <p className='px-15'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever </p>
             </div>
           </div>
         </div>
@@ -68,13 +68,13 @@ function Page() {
       {/* area 3 */}
 
       {/* area 4 */}
-      <div className='container mx-auto'>
+      <div className='container mx-auto py-30'>
         <div className='text-center'>
-          <h1>Our Popular Residence</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <h1 className='text-4xl font-bold'>Our Popular Residence</h1>
+          <p className='lg:px-30 mt-2'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
         <div>
-          <div className='grid grid-cols-1 sm:grid-cols-4 gap-1'>
+          <div className='grid grid-cols-1 sm:grid-cols-4 gap-1 mt-10 text-center'>
             <div>
               <h1 className='text-5xl font-bold text-[#0249A3]'>5+</h1>
               <p className=''>Years of Excellence</p>
@@ -99,32 +99,32 @@ function Page() {
       {/* area 4 */}
 
       {/* area 5 */}
-      <div className='container mx-auto'>
+      <div className='container mx-auto py-20'>
         <div className='text-center'>
-          <h1>Our Trusted Partners</h1>
+          <h1 className='text-4xl font-bold'>Our Trusted Partners</h1>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-1'>
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-1 mt-5 text-center justify-center '>
           <div>
-            <Image src={Certificate1} alt='certificate1' />
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate1} alt='certificate1' className='mx-auto' />
+            <p className='lg:px-20'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
 
           <div>
-            <Image src={Certificate2} alt='certificate1' />
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate2} alt='certificate1' className='mx-auto' />
+            <p className='lg:px-20'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
 
           <div>
-            <Image src={Certificate3} alt='certificate1' />
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
+            <Image src={Certificate3} alt='certificate1' className='mx-auto' />
+            <p className='lg:px-20'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</p>
           </div>
         </div>
       </div>
       {/* area 5 */}
 
       {/* area 6 */}
-      <div className='container mx-auto'>
+      <div className='container mx-auto py-20'>
         <div>
           <h1>The Faces Behind Our Success</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-1'>
