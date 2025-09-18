@@ -126,15 +126,15 @@ function Page() {
       {/* area 6 */}
       <div className='container mx-auto py-20'>
         <div>
-          <h1>The Faces Behind Our Success</h1>
+          <h1 className='text-4xl font-bold'>The Faces Behind Our Success</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-1'>
             <div>
               <Image src={CEOImg} alt='CEO' />
             </div>
             <div>
               <div className='flex gap-1'>
-                <Image src={LinkedinLogo} alt='linkedin' />
-                <h1>CEO</h1>
+                <Image src={LinkedinLogo} alt='linkedin' className='w-10'/>
+                <h1 className='text-2xl font-bold mt-2'>CEO</h1>
               </div>
               <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
               <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
@@ -142,39 +142,39 @@ function Page() {
           </div>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-4 gap-1'>
+        <div className='grid grid-cols-1 sm:grid-cols-4 gap-1 mt-5'>
           <div>
             <Image src={ManagerImg} alt='Manager' />
-            <div className='flex gap-1'>
-              <Image src={LinkedinLogo} alt='linkedin' />
-              <h1>CEO</h1>
+            <div className='flex gap-1 mt-3'>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10'/>
+              <h1 className='text-2xl font-bold mt-2'>CEO</h1>
             </div>
             <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div>
             <Image src={ManagerImg} alt='Manager' />
-            <div className='flex gap-1'>
-              <Image src={LinkedinLogo} alt='linkedin' />
-              <h1>CEO</h1>
+            <div className='flex gap-1 mt-3'>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10'/>
+              <h1 className='text-2xl font-bold mt-2'>CEO</h1>
             </div>
             <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div>
             <Image src={ManagerImg} alt='Manager' />
-            <div className='flex gap-1'>
-              <Image src={LinkedinLogo} alt='linkedin' />
-              <h1>CEO</h1>
+            <div className='flex gap-1 mt-3'>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10'/>
+              <h1 className='text-2xl font-bold mt-2'>CEO</h1>
             </div>
             <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div>
             <Image src={ManagerImg} alt='Manager' />
-            <div className='flex gap-1'>
-              <Image src={LinkedinLogo} alt='linkedin' />
-              <h1>CEO</h1>
+            <div className='flex gap-1 mt-3'>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10'/>
+              <h1 className='text-2xl font-bold mt-2'>CEO</h1>
             </div>
             <p>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
