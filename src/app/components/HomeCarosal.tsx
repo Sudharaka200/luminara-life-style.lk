@@ -53,19 +53,22 @@ export default function HomeCarosal() {
                     <li>
                         <div
                             onClick={() => setActive("Lands")}
-                            className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Lands" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}
+                            className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
+                            ${active === "Lands"
+                                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
+                                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
                         >
                             <p className="mb-2">Lands</p>
                             <Image src={LandIcon} alt="Land Icon" className="w-16 h-16 object-contain" />
                         </div>
                     </li>
 
+
                     <li>
                         <div
                             onClick={() => setActive("Homes")}
                             className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Homes" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}
+            ${active === "Homes" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-[#086FB1] hover:text-white"}`}
                         >
                             <p className="mb-2">Homes</p>
                             <Image src={HomeIcon} alt="Home Icon" className="w-16 h-16 object-contain" />
@@ -76,7 +79,7 @@ export default function HomeCarosal() {
                         <div
                             onClick={() => setActive("Apartments")}
                             className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Apartments" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}
+            ${active === "Apartments" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-[#086FB1]  hover:text-white"}`}
                         >
                             <p className="mb-2">Apartments</p>
                             <Image src={ApartmentIcon} alt="Apartment Icon" className="w-16 h-16 object-contain" />
@@ -86,7 +89,7 @@ export default function HomeCarosal() {
                         <div
                             onClick={() => setActive("Cabana")}
                             className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Cabana" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}>
+            ${active === "Cabana" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-[#086FB1]  hover:text-white"}`}>
                             <p className="mb-2">Cabana</p>
                             <Image src={CabanaIcon} alt="Cabana Icon" className="w-16 h-16 object-contain" />
                         </div>
@@ -94,7 +97,7 @@ export default function HomeCarosal() {
                     <li>
                         <div onClick={() => setActive("Shops")}
                             className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Shops" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}>
+            ${active === "Shops" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-[#086FB1] hover:text-white"}`}>
                             <p className="mb-2">Shops</p>
                             <Image src={ShopsIcon} alt="Shops Icon" className="w-16 h-16 object-contain" />
                         </div>
@@ -102,7 +105,7 @@ export default function HomeCarosal() {
                     <li>
                         <div onClick={() => setActive("Others")}
                             className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer bg-white/60 backdrop-blur-md transition-all duration-300
-            ${active === "Others" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-blue-100"}`}>
+            ${active === "Others" ? "bg-blue-500 text-white scale-105 shadow-lg" : "hover:bg-[#086FB1]  hover:text-white"}`}>
                             <p className="mb-2">Others</p>
                             <Image src={OtherIcon} alt="Other Icon" className="w-16 h-16 object-contain" />
                         </div>
