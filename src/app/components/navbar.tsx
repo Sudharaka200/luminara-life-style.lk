@@ -23,7 +23,7 @@ function Navbar() {
                         </Link>
                     </div>
                     <div className='w-2/3'>
-                        <div className="absolute text-black w-full">
+                        <div className="absolute text-black">
                             <Link className='ml-10' href="/">Home</Link>
                             <Link className='ml-10' href="/About">About</Link>
                             <Link className='ml-10' href="/Opportunities">Opportunities</Link>

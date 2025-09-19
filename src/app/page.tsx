@@ -11,74 +11,12 @@ import Propertycard from './components/card';
 import ImageSlider from './components/imageslider';
 import NewsImg from '../../public/images/Rectangle 136.png';
 import NewsCard from './components/newsCard';
+import HomeCarosal from './components/HomeCarosal';
 
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./images/bg-img.png')" }}>
-        {/* Desktop */}
-        <div className='bg-white/60 backdrop-blur-md border border-white/30 rounded-2xl p-8 w-full max-w-4xl'>
-          <ul className="flex gap-5 flex-wrap justify-center">
-            <li>
-              <div className='border p-3 '>
-                <p>Lands</p>
-                <Image src={LandIcon} alt='Land Icon' />
-              </div>
-            </li>
-            <li>
-              <div className='border p-3 '>
-                <p>Homes</p>
-                <Image src={HomeIcon} alt='Land Icon' />
-              </div>
-            </li>
-            <li>
-              <div className='border p-3 '>
-                <p>Apartments</p>
-                <Image src={ApartmentIcon} alt='Land Icon' />
-              </div>
-            </li>
-            <li>
-              <div className='border p-3 '>
-                <p>Cabana</p>
-                <Image src={CabanaIcon} alt='Land Icon' />
-              </div>
-            </li>
-            <li>
-              <div className='border p-3 '>
-                <p>Shops</p>
-                <Image src={ShopsIcon} alt='Land Icon' />
-              </div>
-            </li>
-            <li>
-              <div className='border p-3 '>
-                <p>Others</p>
-                <Image src={OtherIcon} alt='Land Icon' />
-              </div>
-            </li>
-          </ul>
-          <div>
-            <form action="">
-              <ul className='flex gap-5 flex-wrap justify-center'>
-                <li>
-                  <label htmlFor="">Property Type</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li>
-                  <label htmlFor="">Location</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li>
-                  <label htmlFor="">Property Type</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li> <br />
-                  <button className='bg-blue-500'>Search</button>
-                </li>
-              </ul>
-            </form>
-          </div>
-        </div>
-      </div>
+      <HomeCarosal />
       {/* section 1 */}
       <div className='container mx-auto p-4'>
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -314,19 +252,19 @@ export default function Home() {
             title="Commission Flexibility and Savings"
             description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
             image="/images/Rectangle 137.png"
-            />
+          />
 
-            <NewsCard
+          <NewsCard
             title="Commission Flexibility and Savings"
             description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
             image="/images/Rectangle 137.png"
-            />
+          />
 
-            <NewsCard
+          <NewsCard
             title="Commission Flexibility and Savings"
             description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
             image="/images/Rectangle 137.png"
-            />
+          />
         </div>
         {/* News */}
       </div>
