@@ -3,6 +3,8 @@
 import { FC } from "react";
 import Image from "next/image";
 import { MapPin, Bed, Bath } from "lucide-react"; 
+import Link from "next/link"
+
 
 interface PropertyCardProps {
   title: string;
@@ -56,12 +58,7 @@ const card: FC<PropertyCardProps> = ({
         </div>
 
         {/* Link */}
-        <a
-          href={link}
-          className="text-blue-600 font-medium hover:underline"
-        >
-          Explore More
-        </a>
+        <Link href="/PropertyHome">Explore More</Link>
       </div>
     </div>
   );
