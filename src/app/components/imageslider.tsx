@@ -4,7 +4,26 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const logos = new Array(15).fill("/images/Group 173.png");
+const logos = [
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  "/images/Group 173.png",
+  
+];
 
 export default function LogoSlider() {
   const controls = useAnimation();
@@ -62,9 +81,9 @@ export default function LogoSlider() {
   }, [controls]);
 
   return (
-    <div className="w-full min-h-[600px] flex flex-col items-center gap-10 py-10 overflow-hidden bg-white">
+    <div className="w-full min-h-[600px] flex flex-col items-center gap-2 py-10 overflow-hidden">
       {[0, 1, 2].map((row) => (
-        <div key={row} className="w-full flex justify-center gap-10">
+        <div key={row} className="w-full flex justify-center gap-2">
           {logos.map((src, i) => (
             <motion.div
               key={`${row}-${i}`}

@@ -16,7 +16,7 @@ const newsCard: FC<PropertyCardProps> = ({
   image,
 }) => {
   return (
-    <div className="max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="max-w-sm bg-white rounded   hover:shadow-lg transition-shadow">
       {/* Image */}
       <div className="relative h-56 w-full">
         <Image
