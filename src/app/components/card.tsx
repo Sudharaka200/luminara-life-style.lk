@@ -28,7 +28,7 @@ const card: FC<PropertyCardProps> = ({
   return (
     <div className="max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       {/* Image */}
-      <div className="relative h-56 w-full">
+      <div className="relative h-80 w-full">
         <Image
           src={image}
           alt={title}
@@ -40,12 +40,12 @@ const card: FC<PropertyCardProps> = ({
       {/* Content */}
       <div className="p-4">
         <h2 className="text-lg font-bold">{title}</h2>
-        <div className="flex items-center text-gray-600 text-sm mb-2">
+        <div className="flex items-center text-gray-600 text-sm ">
           <MapPin size={14} className="mr-1" />
           {location}
         </div>
         <p className="text-gray-900 font-semibold">{price} LKR</p>
-        <p className="text-xs text-gray-500 mb-3">PER UNIT UPWARDS</p>
+        <p className="text-xs text-gray-500 mb-3 italic">PER UNIT UPWARDS</p>
 
         {/* Icons */}
         <div className="flex items-center gap-4 text-gray-700 text-sm mb-4">
