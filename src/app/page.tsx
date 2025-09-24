@@ -75,7 +75,7 @@ export default function Home() {
         <h1 className='text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mt-10'>Our Popular Residence</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever </p>
         <div className="relative z-10 mt-5 w-full max-w-4xl">
-          <ul className="flex gap-5 flex-wrap sm:justify-center">
+          <ul className="flex gap-5 flex-wrap sm:justify-normal justify-center">
             <li>
               <div
                 onClick={() => setActive("Lands")}
