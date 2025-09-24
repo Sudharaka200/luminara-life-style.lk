@@ -164,7 +164,7 @@ function TestimonialSection() {
   }, [controls]);
 
   return (
-    <div className="container-fluid mx-auto py-10">
+    <div className="container-fluid mx-auto mt-0 py-10">
       {[0, 1, 2, 3, 4].map((row) => (
         <div key={row} className="flex justify-center gap-4 mb-4 overflow-x-hidden">
           {testimonials.map((testimonial, i) => (

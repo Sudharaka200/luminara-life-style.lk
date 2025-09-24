@@ -10,13 +10,13 @@ function Navbar() {
             <div className='h-full flex items-center justify-between'>
 
                 {/* Mobile */}
-                <div className="flex items-center justify-between w-full md:hidden">
+                <div className="flex items-center justify-between w-full md:hidden z-50">
                     <Image src={Logo} alt='Main-logo' />
                     <Menulinks />
                 </div>
 
                 {/* Desktop*/}
-                <div className='hidden md:flex items-center justify-between gap-8 h-full w-full overflow-hidden'>
+                <div className='hidden md:flex items-center justify-between gap-8 h-full w-full overflow-hidden '>
                     <div className='w-1/3'>
                         <Link href="/">
                             <Image src={Logo} alt='Main-logo' className='' />
