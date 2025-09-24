@@ -9,15 +9,17 @@ import OtherIcon from './images/real-estate 1.png'
 import section1Img from './images/Group 172.png'
 import CategorySwiper from './components/categorySwiper';
 import Propertycard from './components/card';
-import ImageSlider from './components/imageslider';
 import NewsImg from '../../public/images/Rectangle 136.png';
 import NewsCard from './components/newsCard';
 import HomeCarosal from './components/HomeCarosal';
 import { useState } from 'react';
+import dynamic from "next/dynamic";
 
 
 export default function Home() {
   const [active, setActive] = useState("Lands");
+  const ImageSlider = dynamic(() => import("./components/imageslider"), { ssr: false });
+  const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
   return (
     <>
@@ -261,11 +263,12 @@ export default function Home() {
       {/* Section 7 */}
 
       {/* Section 8 */}
-      <div className=''>
+      <div className='container-fluid'>
         <div className='container mx-auto p-4'>
           <h1 className='text-4xl font-bold mt-10'>Testimonials</h1>
           <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
         </div>
+        <TestimonialSlider />
       </div>
       {/* Section 8 */}
 
@@ -278,18 +281,26 @@ export default function Home() {
         <div className='container mt-5'>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div>
-              <Image src={NewsImg} alt='News Image' />
+              <Image src={NewsImg} alt='News Image' className='object-cover w-full' />
             </div>
 
-            <div>
-              <h1>Commission Flexibility and Savings</h1>
+            <div className='justify-center'>
+              <h1 className='text-2xl font-bold mt-2'>Commission Flexibility and Savings</h1>
               <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
-            </div>
+              <br />
+              <p>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable</p>
 
+            </div>
           </div>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-1 mt-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-4 gap-5 mt-5'>
+          <NewsCard
+            title="Commission Flexibility and Savings"
+            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
+            image="/images/Rectangle 137.png"
+          />
+
           <NewsCard
             title="Commission Flexibility and Savings"
             description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
