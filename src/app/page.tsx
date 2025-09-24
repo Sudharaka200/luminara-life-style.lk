@@ -9,16 +9,17 @@ import OtherIcon from './images/real-estate 1.png'
 import section1Img from './images/Group 172.png'
 import CategorySwiper from './components/categorySwiper';
 import Propertycard from './components/card';
-import ImageSlider from './components/imageslider';
 import NewsImg from '../../public/images/Rectangle 136.png';
 import NewsCard from './components/newsCard';
 import HomeCarosal from './components/HomeCarosal';
 import { useState } from 'react';
-import TestimonialSlider from "./components/testomonial";
+import dynamic from "next/dynamic";
 
 
 export default function Home() {
   const [active, setActive] = useState("Lands");
+  const ImageSlider = dynamic(() => import("./components/imageslider"), { ssr: false });
+  const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
   return (
     <>
@@ -267,7 +268,7 @@ export default function Home() {
           <h1 className='text-4xl font-bold mt-10'>Testimonials</h1>
           <p>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
         </div>
-          <TestimonialSlider />
+        <TestimonialSlider />
       </div>
       {/* Section 8 */}
 

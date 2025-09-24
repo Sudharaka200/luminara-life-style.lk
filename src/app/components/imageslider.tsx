@@ -22,61 +22,64 @@ const logos = [
   "/images/Group 173.png",
   "/images/Group 173.png",
   "/images/Group 173.png",
-  
 ];
 
 export default function LogoSlider() {
   const controls = useAnimation();
-
-  // track scroll speed
-  const lastY = useRef(window.scrollY);
-  const lastTime = useRef(performance.now());
+  const lastY = useRef<number | null>(null);
+  const lastTime = useRef<number>(0);
   const scrollVelocity = useRef(0);
-
-  // track a continuously increasing offset
-  const offsetRef = useRef(0);
+  const isMounted = useRef(false);
 
   useEffect(() => {
-    // update scrollVelocity on scroll
+    isMounted.current = true;
+    lastY.current = window.scrollY;
+
     const onScroll = () => {
+      if (!isMounted.current) return;
       const now = performance.now();
-      const dy = Math.abs(window.scrollY - lastY.current);
+      const dy = lastY.current !== null ? Math.abs(window.scrollY - lastY.current) : 0;
       const dt = now - lastTime.current || 1;
-      // px per ms
       scrollVelocity.current = dy / dt;
       lastY.current = window.scrollY;
       lastTime.current = now;
     };
+
     window.addEventListener("scroll", onScroll);
 
-    // animation loop
-    let raf: number;
-    const tick = () => {
-      const baseSpeed = 0.02;              // slow automatic movement
-      const boost = scrollVelocity.current * 2; // speed boost when scrolling
-      offsetRef.current += baseSpeed + boost;
+    // Start animation only after mount
+    const startAnimation = async () => {
+      if (!isMounted.current) return;
 
+      await controls.start({ x: 0 }); // Initialize controls safely
+
+      // Continuous animation with scroll velocity
       controls.start((i) => {
         const totalLogos = logos.length;
         const row = Math.floor(i / totalLogos);
         const direction = row % 2 === 0 ? -1 : 1;
-        const percent = (offsetRef.current * direction) % 100;
+        const baseSpeed = 20; // Base duration in seconds
+        const speed = baseSpeed / (1 + scrollVelocity.current * 2); // Adjust speed based on scroll
         return {
-          x: `${percent}%`,
-          transition: { ease: "linear", duration: 0.016 }, // ~60fps
+          x: `${direction * 100}%`,
+          transition: {
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear",
+              duration: speed,
+            },
+          },
         };
       });
-
-      // decay the boost gradually so it slows down smoothly
-      scrollVelocity.current *= 0.9;
-
-      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+
+    startAnimation();
 
     return () => {
+      isMounted.current = false;
       window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
+      controls.stop(); // Stop all animations on unmount
     };
   }, [controls]);
 
