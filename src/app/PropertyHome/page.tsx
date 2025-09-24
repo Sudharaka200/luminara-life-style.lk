@@ -8,6 +8,23 @@ import GridImg1 from '@/../public/images/Rectangle 193.png'
 import GridImg2 from '@/../public/images/Rectangle 195.png'
 import Propertycard from '../components/card'
 
+const myImages = [
+  "https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg",
+  "https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/57134553-0077-4e93-8cfd-58895d271ef8/homeowners-insurance-facebook.jpg",
+  "https://www.thebraggingmommy.com/wp-content/uploads/2020/06/house-home-real-estate-1100x728.png",
+  "https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg",
+  "https://www.thebraggingmommy.com/wp-content/uploads/2020/06/house-home-real-estate-1100x728.png",
+  "https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/57134553-0077-4e93-8cfd-58895d271ef8/homeowners-insurance-facebook.jpg",
+  "https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2jZucxO0YhsnXc3qJ_MVbuG0Mb5wItI-2Jw&s",
+  "https://www.tasteofhome.com/wp-content/uploads/2022/02/GettyImages-175259322-scaled-e1644008212418.jpg",
+  "https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/57134553-0077-4e93-8cfd-58895d271ef8/homeowners-insurance-facebook.jpg",
+  "https://assets-us-01.kc-usercontent.com/0542d611-b6d8-4320-a4f4-35ac5cbf43a6/57134553-0077-4e93-8cfd-58895d271ef8/homeowners-insurance-facebook.jpg",
+  "https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2jZucxO0YhsnXc3qJ_MVbuG0Mb5wItI-2Jw&s",
+  "https://www.tasteofhome.com/wp-content/uploads/2022/02/GettyImages-175259322-scaled-e1644008212418.jpg",
+];
+
 function page() {
     return (
         <>
@@ -22,12 +39,14 @@ function page() {
             </div>
             <div className='container mx-auto'>
                 <Image src={ProfileImg} alt='' />
-                <h1>GAMPAHA - ELEMINT SUITES</h1>
+                <h1 className='text-2xl font-bold'>Gampaha - Elemint Suites</h1>
                 <div className='flex gap2'>
                     <MapPin size={16} className="mr-1" />
-                    <p>Gampaha</p>
+                    <p className=''>Gampaha</p>
                 </div>
-                <CarosalHome />
+                  <div className='w-full'>
+                    <CarosalHome images={myImages} />
+                  </div>
             </div>
 
             <div className='container mx-auto'>
