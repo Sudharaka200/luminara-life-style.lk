@@ -26,7 +26,7 @@ const card: FC<PropertyCardProps> = ({
   link = "#",
 }) => {
   return (
-    <div className="max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="max-w-sm bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow w-full">
       {/* Image */}
       <div className="relative h-80 w-full">
         <Image

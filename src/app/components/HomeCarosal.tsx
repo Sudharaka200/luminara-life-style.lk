@@ -133,14 +133,14 @@ export default function HomeCarosal() {
                             <li>
                                 <label
                                     htmlFor="district"
-                                    className="block text-sm font-medium text-[#464545] mb-1"
+                                    className="block text-sm font-medium text-[#464545] mb-1 text-center"
                                 >
                                     Location
                                 </label>
                                 <select
                                     id="district"
                                     name="district"
-                                    className="w-full rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                    className="w-75 rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
                                 >
                                     <option value="">Select District</option>
                                     <option>Ampara</option>
@@ -173,9 +173,27 @@ export default function HomeCarosal() {
 
 
                             <li>
-                                <label className="text-[#464545]">Price Range</label> <br />
-                                <input type="text" className="bg-white border px-2 py-1 rounded" />
+                                <label
+                                    htmlFor="priceRange"
+                                    className="block text-sm font-medium text-[#464545] mb-1 text-center"
+                                >
+                                    Price Range
+                                </label>
+                                <select
+                                    id="priceRange"
+                                    name="priceRange"
+                                    className="w-full rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                >
+                                    <option value="">Select Price Range</option>
+                                    <option value="0-5m">Under Rs. 5 Million</option>
+                                    <option value="5m-10m">Rs. 5 – 10 Million</option>
+                                    <option value="10m-20m">Rs. 10 – 20 Million</option>
+                                    <option value="20m-50m">Rs. 20 – 50 Million</option>
+                                    <option value="50m-100m">Rs. 50 – 100 Million</option>
+                                    <option value="100m+">Over Rs. 100 Million</option>
+                                </select>
                             </li>
+
                             <li className="flex items-end">
                                 <button className="bg-blue-500 text-white py-1.5 px-10 rounded hover:bg-blue-600 transition ">
                                     Search
