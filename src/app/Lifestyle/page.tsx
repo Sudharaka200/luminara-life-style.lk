@@ -59,7 +59,7 @@ function Page() {
               style={{ transitionDelay: "600ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/ncSw5WDM/system-1.png"
                     alt="Property Management"
@@ -82,7 +82,7 @@ function Page() {
               style={{ transitionDelay: "700ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/VkSHcFqg/gardening-1.png"
                     alt="Gardening & Landscaping"
@@ -105,7 +105,7 @@ function Page() {
               style={{ transitionDelay: "800ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/sgtHfZKr/helpline-1.png"
                     alt="24/7 Security & Smart Access"
@@ -128,7 +128,7 @@ function Page() {
               style={{ transitionDelay: "900ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/d1FWrPzN/heart-1.png"
                     alt="Wellness & Recreation"
@@ -151,7 +151,7 @@ function Page() {
               style={{ transitionDelay: "1000ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/HnsBv0WQ/rental-service-1.png"
                     alt="Resort Operations / Rental Management"
@@ -174,7 +174,7 @@ function Page() {
               style={{ transitionDelay: "1100ms" }}
             >
               <div className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                   <img
                     src="https://i.postimg.cc/x1HyRpGw/handyman-1.png"
                     alt="Customization & Furnishing Services"
@@ -217,7 +217,7 @@ function Page() {
             >
               <div className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                     <img
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
@@ -267,7 +267,7 @@ function Page() {
             >
               <div className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                     <img
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
@@ -317,7 +317,7 @@ function Page() {
             >
               <div className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                     <img
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
