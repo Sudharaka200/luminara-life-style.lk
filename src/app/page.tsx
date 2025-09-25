@@ -29,7 +29,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="flex justify-center ">
             <div className="">
-              <h1 className='text-3xl font-bold mt-10 sm:text-3xl md:text-5xl'>Why Investors Choose <br /> Luminara <span className="text-[#086FB1]">First ?</span></h1>
+              <h1 className='text-3xl font-bold mt-10 md:text-5xl'>Why Investors Choose <br /> Luminara <span className="text-[#086FB1]">First ?</span></h1>
               <p className='text-[#464545]'>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
               <div className='bg-[#086FB1] rounded-md mt-5'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 p-5'>

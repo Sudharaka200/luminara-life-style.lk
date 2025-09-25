@@ -131,9 +131,47 @@ export default function HomeCarosal() {
                     <div className="mt-6 bg-white/60 backdrop-blur-md border border-white/30 p-5 rounded">
                         <ul className="flex gap-5 flex-wrap justify-center">
                             <li>
-                                <label className="text-[#464545]">Location</label> <br />
-                                <input type="text" className="bg-white border px-2 py-1 rounded" />
+                                <label
+                                    htmlFor="district"
+                                    className="block text-sm font-medium text-[#464545] mb-1"
+                                >
+                                    Location
+                                </label>
+                                <select
+                                    id="district"
+                                    name="district"
+                                    className="w-full rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                >
+                                    <option value="">Select District</option>
+                                    <option>Ampara</option>
+                                    <option>Anuradhapura</option>
+                                    <option>Badulla</option>
+                                    <option>Batticaloa</option>
+                                    <option>Colombo</option>
+                                    <option>Galle</option>
+                                    <option>Gampaha</option>
+                                    <option>Hambantota</option>
+                                    <option>Jaffna</option>
+                                    <option>Kalutara</option>
+                                    <option>Kandy</option>
+                                    <option>Kegalle</option>
+                                    <option>Kilinochchi</option>
+                                    <option>Kurunegala</option>
+                                    <option>Mannar</option>
+                                    <option>Matale</option>
+                                    <option>Matara</option>
+                                    <option>Monaragala</option>
+                                    <option>Mullaitivu</option>
+                                    <option>Nuwara Eliya</option>
+                                    <option>Polonnaruwa</option>
+                                    <option>Puttalam</option>
+                                    <option>Ratnapura</option>
+                                    <option>Trincomalee</option>
+                                    <option>Vavuniya</option>
+                                </select>
                             </li>
+
+
                             <li>
                                 <label className="text-[#464545]">Price Range</label> <br />
                                 <input type="text" className="bg-white border px-2 py-1 rounded" />
