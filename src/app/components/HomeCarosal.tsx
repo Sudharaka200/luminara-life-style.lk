@@ -128,7 +128,7 @@ export default function HomeCarosal() {
                     </ul>
 
                     {/* Search Form */}
-                    <div className="mt-6 bg-white/60 backdrop-blur-md border border-white/30 p-5 rounded">
+                    <div className="mt-6 bg-white/60 backdrop-blur-md border border-white/30 p-5 rounded pb-10">
                         <ul className="flex gap-5 flex-wrap justify-center">
                             <li>
                                 <label
@@ -195,7 +195,7 @@ export default function HomeCarosal() {
                             </li>
 
                             <li className="flex items-end">
-                                <button className="bg-blue-500 text-white py-1.5 px-10 rounded hover:bg-blue-600 transition ">
+                                <button className="bg-[#086FB1] text-white py-1.5 px-10 rounded hover:bg-[#087cc7] transition ">
                                     Search
                                 </button>
                             </li>

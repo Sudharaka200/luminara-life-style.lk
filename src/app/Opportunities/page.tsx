@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import Propertycard from '../components/card';
 import axios from 'axios';
 
-
-
 function Page() {
   //Post API
   type Post = {
@@ -21,8 +19,10 @@ function Page() {
   const [post, setPost] = useState<Post[]>([]);
 
   useEffect(() => {
+  
+    //Realestate get all Post
     axios
-      .get("http://localhost:3001/post/")
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/post`)
       .then(res => {
         console.log('API response:', res.data);
         setPost(res.data.realestate);
@@ -52,23 +52,119 @@ function Page() {
         <h1 className='text-5xl font-bold text-center'>Begin Your Real Estate Journey Her</h1>
         <div className='mt-5'>
           <form action="">
-            <ul className='flex gap-5 justify-center'>
-              <li>
-                <label htmlFor="">Property Type</label> <br />
-                <input type="text" name="" id="" className='bg-white border' />
-              </li>
-              <li>
-                <label htmlFor="">Location</label> <br />
-                <input type="text" name="" id="" className='bg-white border' />
-              </li>
-              <li>
-                <label htmlFor="">Property Type</label> <br />
-                <input type="text" name="" id="" className='bg-white border' />
-              </li>
-              <li> <br />
-                <button className='bg-blue-500'>Search</button>
-              </li>
-            </ul>
+            <div className="mt-6 bg-white/60 backdrop-blur-md border border-white/30 p-5 rounded">
+                        <ul className="flex gap-5 flex-wrap justify-center">
+                          <li>
+                                <label
+                                    htmlFor="district"
+                                    className="block text-sm font-medium text-[#464545] mb-1 text-center"
+                                >
+                                    Location
+                                </label>
+                                <select
+                                    id="district"
+                                    name="district"
+                                    className="w-75 rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                >
+                                    <option value="">Select District</option>
+                                    <option>Ampara</option>
+                                    <option>Anuradhapura</option>
+                                    <option>Badulla</option>
+                                    <option>Batticaloa</option>
+                                    <option>Colombo</option>
+                                    <option>Galle</option>
+                                    <option>Gampaha</option>
+                                    <option>Hambantota</option>
+                                    <option>Jaffna</option>
+                                    <option>Kalutara</option>
+                                    <option>Kandy</option>
+                                    <option>Kegalle</option>
+                                    <option>Kilinochchi</option>
+                                    <option>Kurunegala</option>
+                                    <option>Mannar</option>
+                                    <option>Matale</option>
+                                    <option>Matara</option>
+                                    <option>Monaragala</option>
+                                    <option>Mullaitivu</option>
+                                    <option>Nuwara Eliya</option>
+                                    <option>Polonnaruwa</option>
+                                    <option>Puttalam</option>
+                                    <option>Ratnapura</option>
+                                    <option>Trincomalee</option>
+                                    <option>Vavuniya</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label
+                                    htmlFor="district"
+                                    className="block text-sm font-medium text-[#464545] mb-1 text-center"
+                                >
+                                    Location
+                                </label>
+                                <select
+                                    id="district"
+                                    name="district"
+                                    className="w-75 rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                >
+                                    <option value="">Select District</option>
+                                    <option>Ampara</option>
+                                    <option>Anuradhapura</option>
+                                    <option>Badulla</option>
+                                    <option>Batticaloa</option>
+                                    <option>Colombo</option>
+                                    <option>Galle</option>
+                                    <option>Gampaha</option>
+                                    <option>Hambantota</option>
+                                    <option>Jaffna</option>
+                                    <option>Kalutara</option>
+                                    <option>Kandy</option>
+                                    <option>Kegalle</option>
+                                    <option>Kilinochchi</option>
+                                    <option>Kurunegala</option>
+                                    <option>Mannar</option>
+                                    <option>Matale</option>
+                                    <option>Matara</option>
+                                    <option>Monaragala</option>
+                                    <option>Mullaitivu</option>
+                                    <option>Nuwara Eliya</option>
+                                    <option>Polonnaruwa</option>
+                                    <option>Puttalam</option>
+                                    <option>Ratnapura</option>
+                                    <option>Trincomalee</option>
+                                    <option>Vavuniya</option>
+                                </select>
+                            </li>
+
+
+                            <li>
+                                <label
+                                    htmlFor="priceRange"
+                                    className="block text-sm font-medium text-[#464545] mb-1 text-center"
+                                >
+                                    Price Range
+                                </label>
+                                <select
+                                    id="priceRange"
+                                    name="priceRange"
+                                    className="w-full rounded-lg border border-[#464545]/40 bg-white px-3 py-2 text-[#464545] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#464545] focus:border-[#464545] transition-colors duration-200 hover:border-[#464545] appearance-none"
+                                >
+                                    <option value="">Select Price Range</option>
+                                    <option value="0-5m">Under Rs. 5 Million</option>
+                                    <option value="5m-10m">Rs. 5 – 10 Million</option>
+                                    <option value="10m-20m">Rs. 10 – 20 Million</option>
+                                    <option value="20m-50m">Rs. 20 – 50 Million</option>
+                                    <option value="50m-100m">Rs. 50 – 100 Million</option>
+                                    <option value="100m+">Over Rs. 100 Million</option>
+                                </select>
+                            </li>
+
+                            <li className="flex items-center mt-4">
+                                <button className="bg-[#086FB1] text-white py-2 px-15 rounded hover:bg-[#087cc7] transition ">
+                                    Search
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
           </form>
         </div>
 
