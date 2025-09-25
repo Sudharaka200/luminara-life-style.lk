@@ -8,6 +8,8 @@ function Page() {
   //Post API
   type Post = {
     _id: string | number;
+    
+    
     title: string;
     coverImg: string;
     price: string | number;
@@ -28,6 +30,10 @@ function Page() {
         setPost(res.data.realestate);
       })
       .catch(err => console.error(err));
+
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/news`)
+
   }, []);
 
 

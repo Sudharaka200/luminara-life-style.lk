@@ -30,6 +30,22 @@ export const getAllNews =  async (req, res) => {
     }
 };
 
+//Get Latest news
+export const getLatestNews = async (req, res) => {
+    try {
+        const latestNews  = await News.findOne().sort({ createdAt : -1 });
+
+        if(!latestNews) {
+            return res.status(404).json({success: false, message: "No news found" });
+        }
+
+        res.status(200).json({ success: true, news: latestNews });
+    } catch ( error ) {
+        console.error("Error fetching Latest News", error);
+        res.status(500).json({ success : false, message: "Server Error" });
+    }
+};
+
 //get News by ID
 export const getNewsById = async (req, res) => {
     try {
