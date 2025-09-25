@@ -17,14 +17,14 @@ function Page() {
     <>
       <div className='bg-[#C5C9D5]'>
         <div className='container mx-auto '>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-1 pt-20 pb-20'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-1 px-5 py-10 md:py-20 md:px-0'>
             <div className='items-center justify-center '>
               <Image src={Logo} alt='dad' className='mt-5 ' />
               <h1 className='text-5xl font-bold mt-5'>Your Trusted Partner in  <br /> <span className="text-[#086FB1]">Real Estate</span></h1>
               <p className='lg:pr-30'>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—client</p>
             </div>
             <div>
-              <Image src={Section1Img} alt='dad' className='rounded-md' />
+              <Image src={Section1Img} alt='dad' className='rounded-md mt-2 md:mt-0' />
             </div>
           </div>
         </div>
@@ -32,12 +32,12 @@ function Page() {
 
       {/* area 2 */}
       <div className='bg-[#086FB1]'>
-        <div className='container mx-auto py-20'>
-          <div className='text-center'>
+        <div className='container mx-auto py-10 md:py-20'>
+          <div className='text-center px-5 md:px-0 '>
             <h1 className='text-4xl text-white font-bold'>Keys To your New Begining</h1>
             <p className='lg:px-60 text-white py-2'>The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by</p>
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-3 gap-10 py-10'>
+          <div className='grid grid-cols-1 sm:grid-cols-3 gap-10 px-10 md:px-40'>
             <div className='bg-[#fff] flex flex-col justify-center text-center items-center py-20 rounded-sm'>
               <Image src={Icon} alt='icon' />
               <h1 className='text-2xl font-bold mt-2'>Evaluate Property</h1>
@@ -62,7 +62,7 @@ function Page() {
 
       {/* area 3 */}
       <div className=''>
-        <Image src={Section3Img} alt="section3" className="w-full h-auto" />
+        <Image src={Section3Img} alt="section3" className="w-full h-100 md:h-auto object-cover" />
       </div>
       {/* area 3 */}
 

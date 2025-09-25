@@ -1,8 +1,39 @@
-"use Client"
+"use client";
+
+import { useEffect, useState } from 'react';
 import Propertycard from '../components/card';
+import axios from 'axios';
+
 
 
 function Page() {
+  //Post API
+  type Post = {
+    _id: string | number;
+    title: string;
+    coverImg: string;
+    price: string | number;
+    location: string;
+    beds: number;
+    baths: number;
+
+  };
+  const [post, setPost] = useState<Post[]>([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/post/")
+      .then(res => {
+        console.log('API response:', res.data);
+        setPost(res.data.realestate);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+
+
+
+
   return (
     <>
       {/* area 1 */}
@@ -21,137 +52,44 @@ function Page() {
         <h1 className='text-5xl font-bold text-center'>Begin Your Real Estate Journey Her</h1>
         <div className='mt-5'>
           <form action="">
-              <ul className='flex gap-5 justify-center'>
-                <li>
-                  <label htmlFor="">Property Type</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li>
-                  <label htmlFor="">Location</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li>
-                  <label htmlFor="">Property Type</label> <br />
-                  <input type="text" name="" id="" className='bg-white border' />
-                </li>
-                <li> <br />
-                  <button className='bg-blue-500'>Search</button>
-                </li>
-              </ul>
-            </form>
+            <ul className='flex gap-5 justify-center'>
+              <li>
+                <label htmlFor="">Property Type</label> <br />
+                <input type="text" name="" id="" className='bg-white border' />
+              </li>
+              <li>
+                <label htmlFor="">Location</label> <br />
+                <input type="text" name="" id="" className='bg-white border' />
+              </li>
+              <li>
+                <label htmlFor="">Property Type</label> <br />
+                <input type="text" name="" id="" className='bg-white border' />
+              </li>
+              <li> <br />
+                <button className='bg-blue-500'>Search</button>
+              </li>
+            </ul>
+          </form>
         </div>
 
         {/* Properties */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-5'>
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-           {/* Properties */}
+          {Array.isArray(post) &&
+            post.map((p) => (
+              <div key={p._id}>   {/* 👈 use _id */}
+                <Propertycard
+                  title={p.title}
+                  location={p.location}
+                  price={String(p.price)}
+                  image={p.coverImg}
+                  beds={p.beds}
+                  baths={p.baths}
+                  link={`/property/${p._id}`}
+                />
+              </div>
+            ))
+          };
+          {/* Properties */}
         </div>
       </div>
       {/* area 2 */}

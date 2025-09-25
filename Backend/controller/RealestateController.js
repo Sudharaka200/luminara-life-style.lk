@@ -1,4 +1,3 @@
-import { error } from "console";
 import Realestate from "../models/Realestate.js";
 
 //create Post
