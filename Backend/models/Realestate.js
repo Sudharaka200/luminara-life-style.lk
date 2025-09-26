@@ -12,7 +12,7 @@ const realestateSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["Apartment", "House", "Condo", "Land", "Commercial"], 
+      enum: ["Lands", "Homes", "Apartments", "Cabanas", "Shops", "Others"], 
       trim: true,
     },
     coverImg: {
