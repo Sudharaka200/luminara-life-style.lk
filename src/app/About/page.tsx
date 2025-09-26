@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Logo from '../../../public/images/image 2.png';
 import Section1Img from '../../../public/images/Rectangle 141.png';
@@ -11,8 +11,20 @@ import Certificate3 from '@/app/images/—Pngtree—vector certified professiona
 import CEOImg from '@/app/images/Rectangle 147.png';
 import LinkedinLogo from '@/app/images/linkedin 1.png';
 import ManagerImg from '@/app/images/Rectangle 150.png';
+import axios from 'axios';
+
+type Post = {
+  _id: string | number;
+  title: string;
+  coverImg: string;
+  price: string | number;
+  location: string;
+  beds: number;
+  baths: number;
+}
 
 function Page() {
+
   return (
     <>
       <div className='bg-[#C5C9D5]'>
@@ -134,24 +146,24 @@ function Page() {
           <h1 className='text-2xl md:text-3xl font-bold  md:mt-10'>The Faces Behind Our Success</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-10'>
             <div>
-              <Image src={CEOImg} alt='CEO' className='object-cover w-full mt-3 rounded-md'/>
+              <Image src={CEOImg} alt='CEO' className='object-cover w-full mt-3 rounded-md' />
             </div>
             <div>
               <div className=''>
-                <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10 justify-center'/>
+                <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10 justify-center' />
                 <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - CEO</h1>
               </div>
               <p className='text-[#464545]'>
                 The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable
               </p>
               <br />
-               <p className='text-[#464545] hidden lg:block'>
+              <p className='text-[#464545] hidden lg:block'>
                 The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable
               </p>
-               <p className='text-[#464545] hidden lg:block'>
+              <p className='text-[#464545] hidden lg:block'>
                 The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable
               </p>
-              <br /> 
+              <br />
               <p className='text-[#464545] hidden lg:block'>
                 The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in Arizona saved around $19,000 by listing on their own.MarketWatchWhy it matters: When crafting testimonials, consider highlighting value-focused stories—clients who appreciated transparency or benefited from cost savings are compelling and relatable
               </p>
@@ -161,37 +173,37 @@ function Page() {
 
         <div className='grid grid-cols-1 sm:grid-cols-4 gap-5 mt-5 md:mt-10'>
           <div className=''>
-            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md'/>
+            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md' />
             <div className='mt-3'>
-              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10'/>
-             <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10' />
+              <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
             </div>
             <p className='text-[#464545]'>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div className=''>
-            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md'/>
+            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md' />
             <div className='mt-3'>
-              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10'/>
-             <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10' />
+              <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
             </div>
             <p className='text-[#464545]'>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div className=''>
-            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md'/>
+            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md' />
             <div className='mt-3'>
-              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10'/>
-             <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10' />
+              <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
             </div>
             <p className='text-[#464545]'>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
 
           <div className=''>
-            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md'/>
+            <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md' />
             <div className='mt-3'>
-              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10'/>
-             <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
+              <Image src={LinkedinLogo} alt='linkedin' className='w-10 h-10' />
+              <h1 className='text-xl md:text-xl font-bold'>Mr Joe Done - Manager</h1>
             </div>
             <p className='text-[#464545]'>Luminara Lifestyle made buying our dream home so easy! From the first viewing to the final paperwork, everything was handled professionally and with genuine care</p>
           </div>
