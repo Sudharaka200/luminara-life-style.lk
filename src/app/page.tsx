@@ -14,6 +14,7 @@ import HomeCarosal from './components/HomeCarosal';
 import { useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
 import axios from 'axios';
+import { Promise } from 'mongoose';
 
 type News = {
   _id: string | number;
@@ -28,14 +29,18 @@ export default function Home() {
   const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
   const [news, setNews] = useState<News[]>([]);
+  const [allNews, setAllNews] = useState<News[]>([]);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/news/latest`)
-      .then((res) => {
-        setNews(res.data.news);
-      })
-      .catch((err) => console.error(err));
+    Promise.all([
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news/latest`),
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news`)
+    ])
+    .then(([news, allNews]) => {
+      setNews(news.data.news);
+      setAllNews(all.data.allNews);
+    })
+    .catch(console.error);
   }, []);
 
   return (
