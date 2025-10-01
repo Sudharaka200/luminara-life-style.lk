@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
 import axios from 'axios';
 
-type News = {
+type AllNews = {
   _id: string | number;
   title: string;
   image: string;
@@ -27,16 +27,19 @@ export default function Home() {
   const ImageSlider = dynamic(() => import("./components/imageslider"), { ssr: false });
   const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
-  const [news, setNews] = useState<News[]>([]);
+  const [allNews, setAllNews] = useState<AllNews[]>([]);
+
 
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/news/latest`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/news`)
       .then((res) => {
-        setNews(res.data.news);
+        setAllNews(res.data.news);
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
+
 
   return (
     <>
@@ -294,7 +297,7 @@ export default function Home() {
 
         {/* News */}
         <div className='container mt-5'>
-          {(Array.isArray(news) ? news : [news]).map((n) => n && (
+          {/* {(Array.isArray(news) ? news : [news]).map((n) => n && (
             <div key={n._id}>
               <div className='grid grid-cols-1  md:grid-cols-2 gap-4'>
                 <div>
@@ -306,33 +309,19 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
 
         <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-4 gap-5 mt-5'>
-          <NewsCard
-            title="Commission Flexibility and Savings"
-            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
-            image="/images/Rectangle 137.png"
-          />
-
-          <NewsCard
-            title="Commission Flexibility and Savings"
-            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
-            image="/images/Rectangle 137.png"
-          />
-
-          <NewsCard
-            title="Commission Flexibility and Savings"
-            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
-            image="/images/Rectangle 137.png"
-          />
-
-          <NewsCard
-            title="Commission Flexibility and Savings"
-            description="The real estate landscape is shifting toward greater transparency in agent commissions following a landmark settlement in August 2024. Buyers and sellers now frequently negotiate flat-fee models or opt for rebate services, allowing for significant cost savings—one Seattle couple saved nearly $97,000, and another seller in "
-            image="/images/Rectangle 137.png"
-          />
+          {allNews?.map((news) => (
+            <div key={news._id}>
+              <NewsCard
+                title={news.title}
+                description={news.description}
+                image={news.image}
+              />
+            </div>
+          ))}
         </div>
         {/* News */}
       </div>
