@@ -203,7 +203,7 @@ function Page() {
         {/* Properties */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-5'>
           {filtered.map((p) => (
-            <div key={p._id}>   {/* 👈 use _id */}
+            <div key={p._id}>  
               <Propertycard
                 title={p.title}
                 location={p.location}
