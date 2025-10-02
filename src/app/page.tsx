@@ -22,24 +22,70 @@ type AllNews = {
   description: string;
 }
 
+type LatestNews = {
+  _id: string | number;
+  title: string;
+  image: string;
+  description: string;
+}
+
+type Realestate = {
+  _id: string | number;
+  title: string;
+  coverImg: string;
+  price: string;
+  location: string;
+  beds: number;
+  baths: number;
+}
+
 export default function Home() {
   const [active, setActive] = useState("Lands");
   const ImageSlider = dynamic(() => import("./components/imageslider"), { ssr: false });
   const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
   const [allNews, setAllNews] = useState<AllNews[]>([]);
+  const [latestNews, setLatestNews] = useState<LatestNews[]>([]);
+  const [realestatePost, setRealestatePost] = useState<Realestate[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 
   useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/news`)
-      .then((res) => {
-        setAllNews(res.data.news);
-        console.log(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    setLoading(true);
+    setError(null);
+    console.log("API Base URL:", API_URL);
 
+    Promise.all([
+      axios.get(`${API_URL}/news`),
+      axios.get(`${API_URL}/news/latest`),
+      axios.get(`${API_URL}/post`)
+    ])
+      .then(([allnewsResponse, latestNewsResponse, realestateResponse]) => {
+        // Flexible extraction for all - tries nested, then flat data, ensures array
+        setAllNews(Array.isArray(allnewsResponse.data?.allNewsData) ? allnewsResponse.data.allNewsData :
+          Array.isArray(allnewsResponse.data) ? allnewsResponse.data : []);
+        setLatestNews(Array.isArray(latestNewsResponse.data?.latestNewsData) ? latestNewsResponse.data.latestNewsData :
+          Array.isArray(latestNewsResponse.data) ? latestNewsResponse.data : []);
+        setRealestatePost(Array.isArray(realestateResponse.data?.realestate) ? realestateResponse.data.realestate : []);
+
+        // Enhanced logs for debugging extraction
+        console.log("All news full:", allnewsResponse.data);
+        console.log("Extracted allNews length:", (Array.isArray(allnewsResponse.data?.allNewsData) ? allnewsResponse.data.allNewsData :
+          Array.isArray(allnewsResponse.data) ? allnewsResponse.data : []).length);
+        console.log("Latest news full:", latestNewsResponse.data);
+        console.log("Extracted latestNews length:", (Array.isArray(latestNewsResponse.data?.latestNewsData) ? latestNewsResponse.data.latestNewsData :
+          Array.isArray(latestNewsResponse.data) ? latestNewsResponse.data : []).length);
+        console.log("Realestate full:", realestateResponse.data);
+        console.log("Extracted realestate length:", (Array.isArray(realestateResponse.data?.realestate) ? realestateResponse.data.realestate : []).length);
+      })
+      .catch((err) => {
+        console.error("API fetch error:", err);
+        setError(err.response?.data?.message || err.message || 'Failed to fetch data');
+      })
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <>
@@ -91,32 +137,32 @@ export default function Home() {
       <CategorySwiper />
 
       {/* Section 3 */}
+      {/* Section 3: Categories */}
       <div className='container mx-auto p-4'>
-        <h1 className='text-2xl sm:text-3xl md:text-3xl font-bold mt-10'>Our Popular Residence</h1>
-        <p className='text-[#464545]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever </p>
+        <h1 className='text-2xl sm:text-3xl md:text-3xl font-bold mt-10'>Our Popular Residence</h1>
+        <p className='text-[#464545]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever </p>
         <div className="relative z-10 mt-5 w-full max-w-4xl">
           <ul className="flex gap-5 flex-wrap sm:justify-normal justify-center">
             <li>
               <div
                 onClick={() => setActive("Lands")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Lands"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Lands"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Lands</p>
                 <Image src={LandIcon} alt="Land Icon" className="w-16 h-16 object-contain" />
               </div>
             </li>
 
-
             <li>
               <div
                 onClick={() => setActive("Homes")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Homes"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Homes"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Homes</p>
                 <Image src={HomeIcon} alt="Home Icon" className="w-16 h-16 object-contain" />
@@ -127,9 +173,9 @@ export default function Home() {
               <div
                 onClick={() => setActive("Apartments")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Apartments"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Apartments"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Apartments</p>
                 <Image src={ApartmentIcon} alt="Apartment Icon" className="w-16 h-16 object-contain" />
@@ -139,9 +185,9 @@ export default function Home() {
               <div
                 onClick={() => setActive("Cabanas")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Cabanas"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Cabanas"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Cabana</p>
                 <Image src={CabanaIcon} alt="Cabana Icon" className="w-16 h-16 object-contain" />
@@ -150,9 +196,9 @@ export default function Home() {
             <li>
               <div onClick={() => setActive("Shops")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Shops"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Shops"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Shops</p>
                 <Image src={ShopsIcon} alt="Shops Icon" className="w-16 h-16 object-contain" />
@@ -161,9 +207,9 @@ export default function Home() {
             <li>
               <div onClick={() => setActive("Others")}
                 className={`border p-3 flex flex-col items-center w-30 h-30 cursor-pointer backdrop-blur-md transition-all duration-300
-                                    ${active === "Others"
-                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"   // active
-                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`} // default + hover
+                      ${active === "Others"
+                    ? "bg-[#086FB1] text-white scale-105 shadow-lg"
+                    : "bg-white/60 hover:bg-[#086FB1] hover:text-white"}`}
               >
                 <p className="mb-2">Others</p>
                 <Image src={OtherIcon} alt="Other Icon" className="w-16 h-16 object-contain" />
@@ -172,44 +218,35 @@ export default function Home() {
           </ul>
         </div>
       </div>
+
+      {/* Filtered Realestate Grid - Place this right after the categories section */}
       <div className='container mx-auto p-4 mb-10'>
-        <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2  gap-2 lg:grid-cols-4'>
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
-          <Propertycard
-            title="EXPRESS FIVE - MATTEGODA"
-            location="Borella"
-            price="39,500,000"
-            image="/images/Rectangle 103.png"
-            beds={3}
-            baths={1}
-            link="/property/express-five"
-          />
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-5'>
+          {Array.isArray(realestatePost) && realestatePost.length > 0 ? (
+            (() => {
+              // Filter posts by active category (case-sensitive; adjust if API categories differ, e.g., "Cabana" vs "Cabanas")
+              const filteredPosts = realestatePost.filter(post => post.category === active);
+              return filteredPosts.length > 0 ? (
+                filteredPosts.map((realestateData) => (
+                  <div key={realestateData._id || Math.random()}>
+                    <Propertycard
+                      title={realestateData.title || 'Untitled Property'}
+                      location={realestateData.location || 'Unknown Location'}
+                      price={String(realestateData.price || 'Price not available')}
+                      image={realestateData.coverImg || '/placeholder.png'}
+                      beds={realestateData.beds || 0}
+                      baths={realestateData.baths || 0}
+                      link={`/property/${realestateData._id || ''}`}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-4">No posts available for "{active}" category</div>
+              );
+            })()
+          ) : (
+            <div className="col-span-full text-center py-4">No real estate posts available</div>
+          )}
         </div>
       </div>
       {/* Section 3 */}
@@ -296,32 +333,48 @@ export default function Home() {
         <p className='text-[#464545]'>At Luminara, we go beyond traditional real estate — we create lifestyle-driven investments that combine lasting value with everyday luxury. With over 15 years of experience and more than 120 successfully completed projects, we’ve earned the trust of investors, homeowners, and communities alike. From stunning cabanas to premium apartments and curated land packages, every project is designed to deliver exceptional returns while enriching the way you live.</p>
 
         {/* News */}
+        {/* Fixed: Latest News Section - Kept good checks, added prop fallbacks for Image/title/desc to prevent errors */}
         <div className='container mt-5'>
-          {/* {(Array.isArray(news) ? news : [news]).map((n) => n && (
-            <div key={n._id}>
-              <div className='grid grid-cols-1  md:grid-cols-2 gap-4'>
-                <div>
-                  <Image src={n.image} alt="News Image" width={800} height={500} className="object-cover w-full" />
-                </div>
-                <div className="justify-center">
-                  <h1 className="text-2xl font-bold mt-2">{n.title}</h1>
-                  <p className="text-[#464545]">{n.description}</p>
+          {Array.isArray(latestNews) && latestNews.length > 0 ? (
+            latestNews.map((ln) => (
+              <div key={ln._id || Math.random()}>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                  <div>
+                    <Image
+                      src={ln.image || '/placeholder.png'}
+                      alt="News Image"
+                      width={800}
+                      height={500}
+                      className="object-cover w-full"
+                    />
+                  </div>
+                  <div className="justify-center">
+                    <h1 className="text-2xl font-bold mt-2">{ln.title || 'Untitled News'}</h1>
+                    <p className="text-[#464545]">{ln.description || 'No description available'}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))} */}
+            ))
+          ) : (
+            <div className="text-center py-4">No latest news available</div>
+          )}
         </div>
 
-        <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-4 gap-5 mt-5'>
-          {allNews?.slice(1).map((news) => (
-            <div key={news._id}>
-              <NewsCard
-                title={news.title}
-                description={news.description}
-                image={news.image}
-              />
-            </div>
-          ))}
+        {/* Fixed: All News Section - Added Array.isArray check, length guard, prop fallbacks */}
+        <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5'>
+          {Array.isArray(allNews) && allNews.length > 0 ? (
+            allNews.map((allNewsData) => (
+              <div key={allNewsData._id || Math.random()}>
+                <NewsCard
+                  title={allNewsData.title || 'Untitled News'}
+                  description={allNewsData.description || 'No description available'}
+                  image={allNewsData.image || '/placeholder.png'}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-4">No news available</div>
+          )}
         </div>
         {/* News */}
       </div>
