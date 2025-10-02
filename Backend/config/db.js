@@ -5,10 +5,18 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL);
-    console.log("Mongoose Connected!!");
+    if (!process.env.MONGO_URL) {
+      throw new Error("❌ MONGO_URL is not defined in .env");
+    }
+
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log("✅ Mongoose Connected!!");
   } catch (error) {
-    console.error("Connection Failed!", error.message);
+    console.error("❌ Connection Failed!", error.message);
     process.exit(1);
   }
 };

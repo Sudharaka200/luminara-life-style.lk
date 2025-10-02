@@ -12,7 +12,6 @@ type Post = {
   location: string;
   beds: number;
   baths: number;
-
 };
 
 function Page() {
