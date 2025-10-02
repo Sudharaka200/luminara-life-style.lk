@@ -313,7 +313,7 @@ export default function Home() {
         </div>
 
         <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-4 gap-5 mt-5'>
-          {allNews?.map((news) => (
+          {allNews?.slice(1).map((news) => (
             <div key={news._id}>
               <NewsCard
                 title={news.title}
