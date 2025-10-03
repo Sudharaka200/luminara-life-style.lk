@@ -241,7 +241,7 @@ export default function Home() {
                   </div>
                 ))
               ) : (
-                <div className="col-span-full text-center py-4">No posts available for "{active}" category</div>
+                <div className="col-span-full text-center py-4">No posts available for `{active}` category</div>
               );
             })()
           ) : (
