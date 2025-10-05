@@ -210,7 +210,7 @@ function Page() {
                 image={p.coverImg}
                 beds={p.beds}
                 baths={p.baths}
-                link={`/property/${p._id}`}
+                link={`/PropertyHome/${p._id}`}
               />
             </div>
           ))
