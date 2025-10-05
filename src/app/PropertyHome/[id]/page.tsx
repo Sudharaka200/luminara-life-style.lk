@@ -3,10 +3,10 @@ import CoverImg from '@/../public/images/Rectangle 109.png'
 import Image from 'next/image'
 import ProfileImg from '@/../public/images/Rectangle 183.png'
 import { MapPin, Bed, Bath } from "lucide-react";
-import CarosalHome from '../components/carosalHome';
+import CarosalHome from '../../components/carosalHome';
 import GridImg1 from '@/../public/images/Rectangle 193.png'
 import GridImg2 from '@/../public/images/Rectangle 195.png'
-import Propertycard from '../components/card'
+import Propertycard from '../../components/card'
 
 const myImages = [
     "https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg",
@@ -25,7 +25,11 @@ const myImages = [
     "https://www.tasteofhome.com/wp-content/uploads/2022/02/GettyImages-175259322-scaled-e1644008212418.jpg",
 ];
 
-function page() {
+interface propos {
+    params: { id:string } 
+}
+
+function page({params}: propos) {
     return (
         <>
             <div className="relative w-full h-[200px] md:h-[300px] lg:h-[400px]">
@@ -39,6 +43,7 @@ function page() {
             </div>
             <div className='container mx-auto'>
                 <Image src={ProfileImg} alt='' />
+                <p>Ad ID: {params.id}</p>
                 <h1 className='text-2xl font-bold'>Gampaha - Elemint Suites</h1>
                 <div className='flex gap2'>
                     <MapPin size={16} className="mr-1" />

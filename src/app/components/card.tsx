@@ -13,7 +13,7 @@ interface PropertyCardProps {
   image: string;
   beds: number;
   baths: number;
-  link?: string;
+  link: string;
 }
 
 const card: FC<PropertyCardProps> = ({
@@ -23,7 +23,7 @@ const card: FC<PropertyCardProps> = ({
   image,
   beds,
   baths,
-  link = "#",
+  link,
 }) => {
   return (
     <div className="max-w-sm bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition-shadow w-full">
@@ -58,7 +58,7 @@ const card: FC<PropertyCardProps> = ({
         </div>
 
         {/* Link */}
-        <Link href="/PropertyHome">Explore More</Link>
+        <Link href={link}>Explore More</Link>
       </div>
     </div>
   );
