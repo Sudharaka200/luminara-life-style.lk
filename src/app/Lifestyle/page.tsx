@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 function Page() {
@@ -10,44 +11,43 @@ function Page() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="container mx-auto bg-white">
       {/* Hero Section */}
       <section className="relative bg-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div
-              className={`space-y-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            >
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight drop-shadow-lg hover:drop-shadow-xl transition-all duration-500 hover:scale-105 transform">
-                Effortless Living with <span className="text-blue-600 drop-shadow-md animate-pulse">Luminara</span>
+            <div>
+              <Image
+                src="https://i.postimg.cc/J7qF307N/Rectangle-199.png"
+                alt="Luminara Buildings"
+                width={100}
+                height={100}
+                className="w-full h-auto rounded-md"
+              />
+            </div>
+
+            {/* Right Image */}
+            <div className="">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 ">
+                Effortless Living with <span className="text-blue-600">Luminara</span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed drop-shadow-sm hover:text-gray-700 transition-all duration-300">
+              <p className="text-lg text-gray-600">
                 Owning a property with Luminara is more than just investment —it's a lifestyle. Our comprehensive
                 services ensure worry-free ownership, letting you enjoy your home while we handle the details, from
                 maintenance to wellness.
               </p>
-            </div>
 
-            {/* Right Image */}
-            <div
-              className={`relative transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-            >
-              <img
-                src="https://i.postimg.cc/J7qF307N/Rectangle-199.png"
-                alt="Luminara Buildings"
-                className="w-full h-auto rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500 transform"
-              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 px-4 md:px-8 bg-gray-50">
+      <section className="py-16 px-4 md:px-8 bg-gray-50 container-fluid">
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 drop-shadow-lg hover:drop-shadow-xl hover:scale-105 transform transition-all duration-1000 delay-500 animate-pulse ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16" 
           >
             Our Lifestyle & Maintenance Services
           </h2>
@@ -55,21 +55,21 @@ function Page() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Property Management */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "600ms" }}
-            >
+              className="bg-white border-0">
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/ncSw5WDM/system-1.png"
                     alt="Property Management"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Property Management
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm ">
                   Comprehensive property management including regular cleaning, repairs, and maintenance, ensuring your
                   home stays in pristine condition year-round.
                 </p>
@@ -78,18 +78,18 @@ function Page() {
 
             {/* Gardening & Landscaping */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "700ms" }}
-            >
+              className="bg-white border-0">
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/VkSHcFqg/gardening-1.png"
                     alt="Gardening & Landscaping"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Gardening & Landscaping
                 </h3>
                 <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
@@ -101,21 +101,21 @@ function Page() {
 
             {/* 24/7 Security & Smart Access */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "800ms" }}
-            >
+              className="bg-white border-0">
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/sgtHfZKr/helpline-1.png"
                     alt="24/7 Security & Smart Access"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   24/7 Security & Smart Access
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm ">
                   Round-the-clock security with smart access systems, CCTV monitoring, and trained personnel to ensure
                   safety for you and your guests.
                 </p>
@@ -124,21 +124,21 @@ function Page() {
 
             {/* Wellness & Recreation */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "900ms" }}
-            >
+              className="bg-white border-0" >
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/d1FWrPzN/heart-1.png"
                     alt="Wellness & Recreation"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Wellness & Recreation
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm ">
                   Access to exclusive clubhouses, pools, spas, and fitness facilities—designed to enhance your health
                   and relaxation.
                 </p>
@@ -147,21 +147,21 @@ function Page() {
 
             {/* Resort Operations / Rental Management */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "1000ms" }}
-            >
+              className="bg-white border-0" >
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/HnsBv0WQ/rental-service-1.png"
                     alt="Resort Operations / Rental Management"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Resort Operations / Rental Management
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm">
                   Full-service cabana and property rental management, including guest handling, bookings, payments, and
                   housekeeping, maximizing your returns.
                 </p>
@@ -170,21 +170,21 @@ function Page() {
 
             {/* Customization & Furnishing Services */}
             <div
-              className={`bg-white border-0 shadow-sm hover:shadow-2xl hover:-translate-y-4 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "1100ms" }}
-            >
+              className="bg-white border-0">
               <div className="p-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/x1HyRpGw/handyman-1.png"
                     alt="Customization & Furnishing Services"
+                    width={100}
+                    height={100}
                     className="w-12 h-12"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 ">
                   Customization & Furnishing Services
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm ">
                   Tailor your property to your taste with bespoke furnishing, upgrades, and interior customization
                   services.
                 </p>
