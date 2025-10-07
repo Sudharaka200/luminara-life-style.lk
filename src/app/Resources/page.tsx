@@ -232,7 +232,7 @@ export default function ResourcesPage() {
       </section>
 
       <section className="py-16 px-4">
-        <div className="container mx-auto space-y-16 ">
+        <div className="container mx-auto">
           {resourceSections.map((section, sectionIndex) => {
             return (
               <div
