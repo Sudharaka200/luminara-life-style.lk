@@ -1,5 +1,4 @@
 "use client"
-
 import type React from "react"
 import { useState, useEffect } from "react"
 
@@ -210,8 +209,7 @@ export default function ResourcesPage() {
       )}
 
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+
         <div
           className="absolute bottom-20 right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
@@ -223,34 +221,19 @@ export default function ResourcesPage() {
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               {totalDownloads.toLocaleString()}+ Downloads This Month
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold mt-10 md:text-4xl">
               Download Center
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
+            <p className="text-[#464545] drop-shadow-sm mb-10 text-center">
               Access all the essential resources you need to make informed investment decisions with Luminara.
             </p>
-            <div className="flex items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                Instant Download
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                High Quality PDFs
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                Always Updated
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto space-y-16">
+        <div className="container mx-auto space-y-16 ">
           {resourceSections.map((section, sectionIndex) => {
-            const mostPopular = getMostPopular(section.items)
             return (
               <div
                 key={section.title}
@@ -258,31 +241,25 @@ export default function ResourcesPage() {
                 style={{ animationDelay: `${sectionIndex * 200}ms` }}
               >
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="p-3 bg-primary/10 rounded-xl text-primary">{section.icon}</div>
+                  <div className="bg-primary/10 rounded text-primary mb-10">{section.icon}</div>
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">{section.title}</h2>
-                    <p className="text-muted-foreground mt-1">{section.description}</p>
+                    <h2 className="text-xl font-bold mt-2">{section.title}</h2>
+                    <p className="text-[#464545] drop-shadow-sm mb-10 text-center">{section.description}</p>
                   </div>
                 </div>
 
                 <div className="grid gap-4">
                   {section.items.map((item, itemIndex) => {
-                    const isPopular = item.filename === mostPopular.filename
                     const downloadCount = downloadCounts[item.filename] || 0
                     return (
                       <div
                         key={item.filename}
-                        className="group relative flex items-center justify-between p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 animate-slide-in-left hover:-translate-y-1"
+                        className="group relative flex items-center justify-between p-6 bg-card/50 backdrop-blur-sm rounded border border-border"
                         style={{ animationDelay: `${sectionIndex * 200 + itemIndex * 100}ms` }}
                       >
-                        {isPopular && (
-                          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-3 py-1 rounded-full font-bold animate-bounce">
-                            🔥 Most Popular
-                          </div>
-                        )}
 
                         <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                          <h3 className="text-xl font-bold mt-2">
                             {item.title}
                           </h3>
                           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
@@ -333,33 +310,6 @@ export default function ResourcesPage() {
               </div>
             )
           })}
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-gradient-to-r from-muted/20 via-muted/30 to-muted/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-              24/7 Support Available
-            </div>
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Need Help?
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              If youre having trouble downloading any resources or need additional information, our expert support team
-              is here to help you succeed.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg">
-                Contact Support
-              </button>
-              <button className="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105">
-                Live Chat
-              </button>
-            </div>
-          </div>
         </div>
       </section>
     </div>
