@@ -11,10 +11,10 @@ function Page() {
   }, [])
 
   return (
-    <div className="container mx-auto bg-white">
+    <div className=" mx-auto bg-white">
       {/* Hero Section */}
       <section className="relative bg-white py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
@@ -32,7 +32,10 @@ function Page() {
               <h1 className="text-3xl font-bold mt-10 md:text-4xl">
                 Effortless Living with <span className="text-[#086FB1]">Luminara</span>
               </h1>
-              <p className="lg:pr-30 text-[#464545]">
+              <p className="text-[#464545]">
+                Owning a property with Luminara is more than just investment its a lifestyle. Our comprehensive
+                services ensure worry-free ownership, letting you enjoy your home while we handle the details, from
+                maintenance to wellness.
                 Owning a property with Luminara is more than just investment its a lifestyle. Our comprehensive
                 services ensure worry-free ownership, letting you enjoy your home while we handle the details, from
                 maintenance to wellness.

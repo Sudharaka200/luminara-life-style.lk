@@ -131,7 +131,7 @@ export default function StoriesPage() {
             ].map((event, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4 hover:scale-105 animate-event-card group"
+                className="bg-white rounded overflow-hidden "
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="relative overflow-hidden">
