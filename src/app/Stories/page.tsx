@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import ImageSlider from '@/app/components/imageslider'
+import TestimonialSection from "../components/testomonial"
 
 export default function StoriesPage() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -61,12 +63,13 @@ export default function StoriesPage() {
             Discover the journeys of our investors, residents, and community. From financial success to lifestyle
             experiences, these stories bring the Luminara vision to life.
           </p>
+          
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 md:px-8 bg-gray-50" ref={addToRefs}>
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 bg-gray-50">
+        <div className="container-fluid mx-auto">
           <div className="text-center mb-12 animate-section-header">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-sm">
               What Our Investors & Residents Say
@@ -76,12 +79,13 @@ export default function StoriesPage() {
               with Luminara.
             </p>
           </div>
+          <TestimonialSection />
         </div>
       </section>
 
       {/* Explore the Lifestyle Section */}
-      <section className="py-16 px-4 md:px-8 bg-white" ref={addToRefs}>
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="container-fluid mx-auto">
           <div className="text-center mb-12 animate-section-header">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-sm">Explore the Lifestyle</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -89,6 +93,7 @@ export default function StoriesPage() {
               moments.
             </p>
           </div>
+          <ImageSlider />
         </div>
       </section>
 
