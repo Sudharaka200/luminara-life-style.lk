@@ -52,11 +52,11 @@ export default function GuidePage() {
         />
 
         <div
-          className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance bg-gradient-to-r from-white to-gray-200 bg-clip-text">
+          className="relative z-10 mx-auto px-4">
+          <h1 className="text-3xl font-bold mt-10 md:text-4xl">
             Investment Guidance
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-balance leading-relaxed">
+          <p className="text-sm text-white-600 mb-2 drop-shadow-sm">
             A clear, transparent, and trusted path to secure your future with Luminara
           </p>
         </div>
@@ -67,8 +67,8 @@ export default function GuidePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">Investment Process</h2>
-              <p className="text-muted-foreground mb-12 text-xl leading-relaxed">
+              <h2 className="text-3xl font-bold mt-10 md:text-4xl">Investment Process</h2>
+              <p className="text-sm text-white-600 mb-2 drop-shadow-sm">
                 We make investing in real estate simple and straightforward. Heres how it works
               </p>
 
