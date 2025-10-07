@@ -92,7 +92,7 @@ function Page() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   Gardening & Landscaping
                 </h3>
-                <p className="text-gray-600 leading-relaxed drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                <p className="text-gray-600 leading-relaxed drop-shadow-sm">
                   Professional landscaping and garden care, keeping your outdoor spaces beautiful and inviting without
                   you lifting a finger.
                 </p>
@@ -198,12 +198,12 @@ function Page() {
       <section className="py-16 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div
-            className={`text-center mb-16 transition-all duration-1000 delay-1200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-lg hover:drop-shadow-xl hover:scale-105 transform transition-all duration-500 animate-pulse">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Lifestyle Service Packages
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto drop-shadow-sm hover:text-gray-700 transition-all duration-300">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto drop-shadow-sm ">
               Choose from tailored service plans designed to keep your property secure, maintained, and enjoyable—so you
               can focus on living while we handle the rest.
             </p>
@@ -212,22 +212,24 @@ function Page() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Package 1 */}
             <div
-              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "1300ms" }}
+              className="border-2 border-gray-200"
+            
             >
               <div className="p-8">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <img
+                    <Image
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
+                      width={100}
+                      height={100}
                       className="w-12 h-12"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Essential Care Package
                   </h3>
-                  <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  <p className="text-gray-600 mb-6 drop-shadow-sm ">
                     Perfect for owners who want peace of mind with the basics covered.
                   </p>
                 </div>
@@ -249,12 +251,12 @@ function Page() {
 
                 <div className="text-center mb-6">
                   <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
-                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md ">
                     $150/month
                   </p>
                 </div>
 
-                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded">
                   Schedule Free Consultation
                 </button>
               </div>
@@ -262,22 +264,23 @@ function Page() {
 
             {/* Package 2 */}
             <div
-              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "1400ms" }}
+              className="border-2 border-gray-200"
             >
               <div className="p-8">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <img
+                    <Image
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
+                      width={100}
+                      height={100}
                       className="w-12 h-12"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Essential Care Package
                   </h3>
-                  <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
+                  <p className="text-gray-600 mb-6 drop-shadow-sm">
                     Perfect for owners who want peace of mind with the basics covered.
                   </p>
                 </div>
@@ -299,12 +302,12 @@ function Page() {
 
                 <div className="text-center mb-6">
                   <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
-                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md">
                     $150/month
                   </p>
                 </div>
 
-                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded">
                   Schedule Free Consultation
                 </button>
               </div>
@@ -312,19 +315,19 @@ function Page() {
 
             {/* Package 3 */}
             <div
-              className={`border-2 border-gray-200 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-500 rounded-lg group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: "1500ms" }}
-            >
+              className="border-2 border-gray-200">
               <div className="p-8">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                    <img
+                    <Image
                       src="https://i.postimg.cc/HxLyf65s/verify-1.png"
                       alt="Essential Care Package"
+                      width={100}
+                      height={100}
                       className="w-12 h-12"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-all duration-300 drop-shadow-md group-hover:drop-shadow-lg group-hover:scale-105 transform">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Essential Care Package
                   </h3>
                   <p className="text-gray-600 mb-6 drop-shadow-sm group-hover:text-gray-700 transition-all duration-300">
@@ -349,12 +352,12 @@ function Page() {
 
                 <div className="text-center mb-6">
                   <p className="text-sm text-gray-600 mb-2 drop-shadow-sm">Starting From:</p>
-                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md group-hover:scale-110 transform transition-all duration-300">
+                  <p className="text-2xl font-bold text-gray-900 drop-shadow-md">
                     $150/month
                   </p>
                 </div>
 
-                <button className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-110 hover:shadow-xl text-white py-3 px-4 rounded-md font-medium transition-all duration-500 transform active:scale-95 hover:rotate-1 drop-shadow-lg">
+                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded">
                   Schedule Free Consultation
                 </button>
               </div>
