@@ -1,7 +1,26 @@
+"use client"
 import { Building, Mail, Phone } from 'lucide-react'
 import React from 'react'
+import { useState } from "react";
+
 
 function Page() {
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    coverLetter: "",
+    qualifications: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // You can later integrate with API or email service here
+  };
   return (
     <>
       <div className="relative">
@@ -60,8 +79,58 @@ function Page() {
         </div>
       </div>
       {/* form */}
-      <div>
-        
+      <div className="container mx-auto mt-10">
+        <h2 className="text-xl font-bold mt-2">Send Message</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex gap-4">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-1/2 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phonenumber"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-1/2 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <textarea
+            name="coverLetter"
+            placeholder="Message"
+            value={formData.coverLetter}
+            onChange={handleChange}
+            rows={3}
+            className="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <button
+            type="submit"
+            className="bg-[#086FB1] text-white py-1.5 px-10 rounded hover:bg-[#087cc7] transition"
+          >
+            Connect with US
+          </button>
+        </form>
+      </div>
+      <div className='container mx-auto mt-5'>
+        <div className="w-full h-100  overflow-hidden shadow-sm">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.062271056263!2d79.86456467425947!3d6.914682018516194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2595975ebc6b1%3A0x7f49ed5e17a6a3c8!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1692345678901!5m2!1sen!2slk"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+        ></iframe>
+      </div>
       </div>
     </>
   )
