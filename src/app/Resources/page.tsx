@@ -1,6 +1,8 @@
 "use client"
 import type React from "react"
 import { useState, useEffect } from "react"
+import { Search } from "lucide-react";
+
 
 // Custom SVG components
 const Download = ({ className }: { className?: string }) => (
@@ -61,7 +63,16 @@ export default function ResourcesPage() {
   const [downloadingItem, setDownloadingItem] = useState<string | null>(null)
   const [downloadCounts, setDownloadCounts] = useState<Record<string, number>>({})
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+
   const [totalDownloads, setTotalDownloads] = useState(0)
+
+    const [query, setQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Searching for:", query);
+
+  };
 
   useEffect(() => {
     const initialCounts = {
@@ -231,7 +242,29 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <div className="flex flex-col items-center justify-center">
+      <form
+        onSubmit={handleSearch}
+        className="flex items-center w-full max-w-md border border-gray-300 rounded-md overflow-hidden shadow-sm"
+      >
+        <input
+          type="text"
+          placeholder="Search here..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="flex-1 px-4 py-2 focus:outline-none"
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 flex items-center gap-2 bg-[#086FB1] text-white  hover:bg-[#087cc7] transition"
+        >
+          <Search size={18} />
+          Search
+        </button>
+      </form>
+    </div>
+
+      <section className=" px-4">
         <div className="container mx-auto">
           {resourceSections.map((section, sectionIndex) => {
             return (
@@ -240,7 +273,7 @@ export default function ResourcesPage() {
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${sectionIndex * 200}ms` }}
               >
-                <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center gap-3 mt-5">
                   <div className="bg-primary/10 rounded text-primary mb-10">{section.icon}</div>
                   <div>
                     <h2 className="text-xl font-bold mt-2">{section.title}</h2>
