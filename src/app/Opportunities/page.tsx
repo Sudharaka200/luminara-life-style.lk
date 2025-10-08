@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Propertycard from '../components/card';
 import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
 
 type Post = {
   _id: string | number;
@@ -22,6 +23,14 @@ function Page() {
 
   const [filtered, setFiltered] = useState<Post[]>([]);
 
+  //search Filter from homecarosal
+  const searchParams = useSearchParams();
+
+  const categoryFromURL = searchParams.get("category") || "";
+  const districtFromURL = searchParams.get("district") || "";
+  const priceRangeFromURL = searchParams.get("priceRange") || "";
+
+
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/post`)
@@ -32,11 +41,55 @@ function Page() {
       .catch((err) => console.error(err));
   }, []);
 
-  // Handle Search click
+  useEffect(() => {
+    setCategory(categoryFromURL);
+    setDistrict(districtFromURL);
+    setPriceRange(priceRangeFromURL);
+  }, [categoryFromURL, districtFromURL, priceRangeFromURL]);
+
+  useEffect(() => {
+    if (!post.length) return;
+
+    let result = [...post];
+
+    if (categoryFromURL) {
+      result = result.filter((p) =>
+        p.title.toLowerCase().includes(categoryFromURL.toLowerCase())
+      );
+    }
+
+    if (districtFromURL) {
+      result = result.filter(
+        (p) => p.location.toLowerCase() === districtFromURL.toLowerCase()
+      );
+    }
+
+    if (priceRangeFromURL) {
+      const [min, max] = (() => {
+        switch (priceRangeFromURL) {
+          case "0-5m": return [0, 5_000_000];
+          case "5m-10m": return [5_000_000, 10_000_000];
+          case "10m-20m": return [10_000_000, 20_000_000];
+          case "20m-50m": return [20_000_000, 50_000_000];
+          case "50m-100m": return [50_000_000, 100_000_000];
+          case "100m+": return [100_000_000, Infinity];
+          default: return [0, Infinity];
+        }
+      })();
+
+      result = result.filter(
+        (p) => Number(p.price) >= min && Number(p.price) <= max
+      );
+    }
+
+    setFiltered(result);
+  }, [post, categoryFromURL, districtFromURL, priceRangeFromURL]);
+
+  // ✅ Manual search (when user changes dropdowns)
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
-    let result = post;
+    let result = [...post];
 
     if (category) {
       result = result.filter((p) =>
@@ -53,20 +106,13 @@ function Page() {
     if (priceRange) {
       const [min, max] = (() => {
         switch (priceRange) {
-          case "0-5m":
-            return [0, 5_000_000];
-          case "5m-10m":
-            return [5_000_000, 10_000_000];
-          case "10m-20m":
-            return [10_000_000, 20_000_000];
-          case "20m-50m":
-            return [20_000_000, 50_000_000];
-          case "50m-100m":
-            return [50_000_000, 100_000_000];
-          case "100m+":
-            return [100_000_000, Infinity];
-          default:
-            return [0, Infinity];
+          case "0-5m": return [0, 5_000_000];
+          case "5m-10m": return [5_000_000, 10_000_000];
+          case "10m-20m": return [10_000_000, 20_000_000];
+          case "20m-50m": return [20_000_000, 50_000_000];
+          case "50m-100m": return [50_000_000, 100_000_000];
+          case "100m+": return [100_000_000, Infinity];
+          default: return [0, Infinity];
         }
       })();
 
@@ -202,7 +248,7 @@ function Page() {
         {/* Properties */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-5'>
           {filtered.map((p) => (
-            <div key={p._id}>  
+            <div key={p._id}>
               <Propertycard
                 title={p.title}
                 location={p.location}
