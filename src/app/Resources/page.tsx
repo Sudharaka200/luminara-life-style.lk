@@ -235,7 +235,7 @@ export default function ResourcesPage() {
             <h1 className="text-3xl font-bold mt-10 md:text-4xl">
               Download Center
             </h1>
-            <p className="text-[#464545] drop-shadow-sm mb-10 text-center">
+            <p className="text-[#464545] drop-shadow-sm  text-center">
               Access all the essential resources you need to make informed investment decisions with Luminara.
             </p>
           </div>
@@ -245,7 +245,7 @@ export default function ResourcesPage() {
       <div className="flex flex-col items-center justify-center">
       <form
         onSubmit={handleSearch}
-        className="flex items-center w-full max-w-md border border-gray-300 rounded-md overflow-hidden shadow-sm"
+        className="flex items-center w-full max-w-md border border-gray-300 rounded-md overflow-hidden shadow-sm mb-10"
       >
         <input
           type="text"
