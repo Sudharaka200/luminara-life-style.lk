@@ -45,7 +45,6 @@ export default function Home() {
   const TestimonialSlider = dynamic(() => import("./components/testomonial"), { ssr: false });
 
   const [allNews, setAllNews] = useState<AllNews[]>([]);
-  const [latestNews, setLatestNews] = useState<LatestNews[]>([]);
   const [realestatePost, setRealestatePost] = useState<Realestate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -59,32 +58,37 @@ export default function Home() {
 
     Promise.all([
       axios.get(`${API_URL}/news`),
-      axios.get(`${API_URL}/news/latest`),
       axios.get(`${API_URL}/post`)
     ])
-      .then(([allnewsResponse, latestNewsResponse, realestateResponse]) => {
-        // Flexible extraction for all - tries nested, then flat data, ensures array
-        setAllNews(Array.isArray(allnewsResponse.data?.allNewsData) ? allnewsResponse.data.allNewsData :
-          Array.isArray(allnewsResponse.data) ? allnewsResponse.data : []);
-        setLatestNews(Array.isArray(latestNewsResponse.data?.latestNewsData) ? latestNewsResponse.data.latestNewsData :
-          Array.isArray(latestNewsResponse.data) ? latestNewsResponse.data : []);
-        setRealestatePost(Array.isArray(realestateResponse.data?.realestate) ? realestateResponse.data.realestate : []);
+      .then(([allnewsResponse, realestateResponse]) => {
+        const newsData =
+          Array.isArray(allnewsResponse.data?.allNewsData)
+            ? allnewsResponse.data.allNewsData
+            : Array.isArray(allnewsResponse.data?.news)
+              ? allnewsResponse.data.news
+              : Array.isArray(allnewsResponse.data)
+                ? allnewsResponse.data
+                : [];
 
-        // Enhanced logs for debugging extraction
-        console.log("All news full:", allnewsResponse.data);
-        console.log("Extracted allNews length:", (Array.isArray(allnewsResponse.data?.allNewsData) ? allnewsResponse.data.allNewsData :
-          Array.isArray(allnewsResponse.data) ? allnewsResponse.data : []).length);
-        console.log("Latest news full:", latestNewsResponse.data);
-        console.log("Extracted latestNews length:", (Array.isArray(latestNewsResponse.data?.latestNewsData) ? latestNewsResponse.data.latestNewsData :
-          Array.isArray(latestNewsResponse.data) ? latestNewsResponse.data : []).length);
-        console.log("Realestate full:", realestateResponse.data);
-        console.log("Extracted realestate length:", (Array.isArray(realestateResponse.data?.realestate) ? realestateResponse.data.realestate : []).length);
+        const realestateData =
+          Array.isArray(realestateResponse.data?.realestate)
+            ? realestateResponse.data.realestate
+            : Array.isArray(realestateResponse.data)
+              ? realestateResponse.data
+              : [];
+
+        setAllNews(newsData);
+        setRealestatePost(realestateData);
+
+        console.log("Extracted allNews:", newsData);
+        console.log("Extracted realestate:", realestateData);
       })
       .catch((err) => {
         console.error("API fetch error:", err);
         setError(err.response?.data?.message || err.message || 'Failed to fetch data');
       })
       .finally(() => setLoading(false));
+
   }, []);
 
   return (
@@ -221,7 +225,7 @@ export default function Home() {
 
       {/* Filtered Realestate Grid - Place this right after the categories section */}
       <div className='container mx-auto p-4 mb-10'>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-5 mt-5'>
+        <div className='grid grid-cols-1 justify-center sm:grid-cols-2 gap-5 lg:grid-cols-4 mt-3 px-4'>
           {Array.isArray(realestatePost) && realestatePost.length > 0 ? (
             (() => {
               // Filter posts by active category (case-sensitive; adjust if API categories differ, e.g., "Cabana" vs "Cabanas")
@@ -236,7 +240,7 @@ export default function Home() {
                       image={realestateData.coverImg || '/placeholder.png'}
                       beds={realestateData.beds || 0}
                       baths={realestateData.baths || 0}
-                      link={`/property/${realestateData._id || ''}`}
+                      link={`/PropertyHome/${realestateData._id}`}
                     />
                   </div>
                 ))
@@ -311,7 +315,7 @@ export default function Home() {
       {/* Section 7 */}
       <div>
         <div className='text-center container mx-auto '>
-          <h1 className='text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mt-10'>Discover Luxury Living With Luminara Lifestyle; One of the Leading name in Sri Lanka Real Estate!</h1>
+          <h1 className='text-2xl sm:text-3xl md:text-3xl font-bold mt-10'>Discover Luxury Living With Luminara Lifestyle; One of the Leading name in Sri Lanka Real Estate!</h1>
         </div>
         <ImageSlider />
       </div>
@@ -334,7 +338,7 @@ export default function Home() {
 
         {/* News */}
         {/* Fixed: Latest News Section - Kept good checks, added prop fallbacks for Image/title/desc to prevent errors */}
-        <div className='container mt-5'>
+        {/* <div className='container mt-5'>
           {Array.isArray(latestNews) && latestNews.length > 0 ? (
             latestNews.map((ln) => (
               <div key={ln._id || Math.random()}>
@@ -358,7 +362,7 @@ export default function Home() {
           ) : (
             <div className="text-center py-4">No latest news available</div>
           )}
-        </div>
+        </div> */}
 
         {/* Fixed: All News Section - Added Array.isArray check, length guard, prop fallbacks */}
         <div className='grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5'>

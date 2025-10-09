@@ -46,9 +46,13 @@ export default function Page({ params }: Props) {
         setError(null);
         const res = await axios.get(`${API_URL}/post/${id}`);
         setPost(res.data.realestate);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error(err);
-        setError(err.message || "Something went wrong");
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Something went wrong");
+        }
       } finally {
         setLoading(false);
       }
@@ -84,8 +88,8 @@ export default function Page({ params }: Props) {
             <Image
               src={post.companyLogo}
               alt="Company Logo"
-              width={60}
-              height={60}
+              width={100}
+              height={100}
               className="rounded-full object-contain"
             />
           )}
@@ -99,10 +103,13 @@ export default function Page({ params }: Props) {
         </div>
 
         {post.images && post.images.length > 0 && (
-          <div className="w-full mb-6">
-            <CarosalHome images={post.images} />
+          <div className="mb-8">
+            <div className="overflow-hidden rounded">
+              <CarosalHome images={post.images} />
+            </div>
           </div>
         )}
+
 
         <div className="flex items-center gap-2 text-red-600 font-bold text-2xl mb-1">
           <p>{post.price.toLocaleString()}</p>
@@ -125,20 +132,20 @@ export default function Page({ params }: Props) {
           {post.description}
         </p>
 
-        <button className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">
+        <button className="bg-[#086FB1] text-white py-1.5 px-10 rounded hover:bg-[#087cc7] transition">
           Schedule Free Consultation
         </button>
       </div>
 
       {post.video && (
-        <div className="container mx-auto mt-10 px-4">
+        <div className="container mx-auto px-4">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
               src={post.video}
               title="Property Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-[400px] rounded-xl"
+              className="w-full h-[600px] rounded"
             ></iframe>
           </div>
         </div>
