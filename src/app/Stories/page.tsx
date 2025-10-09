@@ -56,10 +56,10 @@ export default function StoriesPage() {
           <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-white/5 rounded-full animate-float-3"></div>
         </div>
         <div className="relative max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl animate-hero-title-enhanced">
+          <h1 className="text-3xl font-bold mt-20 sm:mt-10 md:text-4xl text-white">
             Stories at Luminara
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg animate-hero-subtitle-enhanced">
+          <p className="lg:pr-30 text-white">
             Discover the journeys of our investors, residents, and community. From financial success to lifestyle
             experiences, these stories bring the Luminara vision to life.
           </p>
@@ -71,10 +71,10 @@ export default function StoriesPage() {
       <section className="py-16 bg-gray-50">
         <div className="container-fluid mx-auto">
           <div className="text-center mb-12 animate-section-header">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-sm">
+            <h2 className="text-2xl md:text-3xl font-bold">
               What Our Investors & Residents Say
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-[#464545]">
               Our community is built on trust, growth, and lifestyle. Hear directly from the people who live and invest
               with Luminara.
             </p>
@@ -87,8 +87,8 @@ export default function StoriesPage() {
       <section className="py-16 bg-white">
         <div className="container-fluid mx-auto">
           <div className="text-center mb-12 animate-section-header">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-sm">Explore the Lifestyle</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mt-10">Explore the Lifestyle</h2>
+            <p className="text-[#464545]">
               Step inside the Luminara lifestyle through our gallery of projects, community events, and everyday
               moments.
             </p>
@@ -101,8 +101,8 @@ export default function StoriesPage() {
       <section className="py-16 px-4 md:px-8 bg-gray-50" ref={addToRefs}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-section-header">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 drop-shadow-sm">Upcoming Event</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mt-10">Upcoming Event</h2>
+            <p className="text-[#464545]">
               Join us for our next investor Open Day this fall—experience our premium cabanas, meet our team, and
               explore exclusive investment opportunities.
             </p>
