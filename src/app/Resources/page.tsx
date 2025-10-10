@@ -222,7 +222,7 @@ export default function ResourcesPage() {
       <section className="relative py-20 px-4 overflow-hidden">
 
         <div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse"
+          className="absolute bottom-20 right-10 w-40 h-40 bg-primary/5 rounded blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
 
@@ -245,7 +245,7 @@ export default function ResourcesPage() {
       <div className="flex flex-col items-center justify-center">
       <form
         onSubmit={handleSearch}
-        className="flex items-center w-full max-w-md border border-gray-300 rounded-md overflow-hidden shadow-sm mb-10"
+        className="flex items-center w-full max-w-md border border-[#464545] rounded-md overflow-hidden shadow-sm mb-10"
       >
         <input
           type="text"

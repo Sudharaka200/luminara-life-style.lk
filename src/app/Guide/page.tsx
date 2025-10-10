@@ -38,7 +38,7 @@ export default function GuidePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="container-fluid bg-background">
       {/* Hero Section */}
       <section
         className="relative h-[500px] flex items-center justify-center text-center text-white overflow-hidden"
@@ -53,86 +53,88 @@ export default function GuidePage() {
 
         <div
           className="relative z-10 mx-auto px-4">
-          <h1 className="text-3xl font-bold mt-10 md:text-4xl">
+          <h1 className="text-2xl md:text-3xl font-bold mt-10">
             Investment Guidance
           </h1>
-          <p className="text-sm text-white-600 mb-2 drop-shadow-sm">
+          <p className="">
             A clear, transparent, and trusted path to secure your future with Luminara
           </p>
         </div>
       </section>
 
       {/* Investment Process Section */}
-      <section className="py-20 px-4" data-section="process">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mt-10 md:text-4xl">Investment Process</h2>
-              <p className="text-sm text-white-600 mb-2 drop-shadow-sm">
-                We make investing in real estate simple and straightforward. Heres how it works
-              </p>
+      <div className="container mx-auto">
+        <section className="py-20 px-4" data-section="process">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mt-10">Investment Process</h2>
+                <p className="text-[#464545]">
+                  We make investing in real estate simple and straightforward. Heres how it works
+                </p>
 
-              <div className="space-y-10">
-                {[
-                  {
-                    step: 1,
-                    title: "Choose Your Property",
-                    description:
-                      "Browse our portfolio of villas, apartments, and cabanas to find the investment that matches your goals.",
-                  },
-                  {
-                    step: 2,
-                    title: "Book a Site Visit",
-                    description:
-                      "Schedule an in-person or virtual tour to experience the project, location, and lifestyle firsthand.",
-                  },
-                  {
-                    step: 3,
-                    title: "ROI & Legal Review",
-                    description:
-                      "Our advisors provide a full financial and legal review, including ROI projections, property documents, and ownership details.",
-                  },
-                  {
-                    step: 4,
-                    title: "Payment & Ownership",
-                    description:
-                      "Select from flexible payment plans or financing options. Once complete, your ownership is registered and your property is ready to own/rent.",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={item.step}
-                    className="flex gap-6 group"
-                  >
-                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
-                      {item.step}
+                <div className="space-y-10 mt-5">
+                  {[
+                    {
+                      step: 1,
+                      title: "Choose Your Property",
+                      description:
+                        "Browse our portfolio of villas, apartments, and cabanas to find the investment that matches your goals.",
+                    },
+                    {
+                      step: 2,
+                      title: "Book a Site Visit",
+                      description:
+                        "Schedule an in-person or virtual tour to experience the project, location, and lifestyle firsthand.",
+                    },
+                    {
+                      step: 3,
+                      title: "ROI & Legal Review",
+                      description:
+                        "Our advisors provide a full financial and legal review, including ROI projections, property documents, and ownership details.",
+                    },
+                    {
+                      step: 4,
+                      title: "Payment & Ownership",
+                      description:
+                        "Select from flexible payment plans or financing options. Once complete, your ownership is registered and your property is ready to own/rent.",
+                    },
+                  ].map((item, index) => (
+                    <div
+                      key={item.step}
+                      className="flex gap-6 group"
+                    >
+                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+                        {item.step}
+                      </div>
+                      <div className="">
+                        <h3 className="text-xl font-bold mt-2">
+                          Step {item.step}: {item.title}
+                        </h3>
+                        <p className="text-[#464545]">{item.description}</p>
+                      </div>
                     </div>
-                    <div className="">
-                      <h3 className="text-2xl font-semibold mb-3">
-                        Step {item.step}: {item.title}
-                      </h3>
-                      <p className="text-muted-foreground text-lg leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div
-              className="lg:order-last">
-              <div className="relative group overflow-hidden rounded shadow-sm">
-                <Image
-                  src="https://i.postimg.cc/cHMQ63Dg/Rectangle-242.png"
-                  alt="Luxury property with pool"
-                  width={100}
-                  height={100}
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30" />
+              <div
+                className="lg:order-last">
+                <div className="relative group overflow-hidden rounded shadow-sm">
+                  <Image
+                    src="https://i.postimg.cc/cHMQ63Dg/Rectangle-242.png"
+                    alt="Luxury property with pool"
+                    width={100}
+                    height={100}
+                    className="w-full h-[600px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Financing Options Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-muted/20 to-muted/40" data-section="financing">
@@ -147,21 +149,20 @@ export default function GuidePage() {
                   height={100}
                   className="w-full h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20"/>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20" />
               </div>
             </div>
 
             <div
-              className={`transform transition-all duration-800 delay-200 ${
-                isVisible.financing ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-              }`}
+              className={`transform transition-all duration-800 delay-200 ${isVisible.financing ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+                }`}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">Financing Options</h2>
-              <p className="text-muted-foreground mb-12 text-xl leading-relaxed">
+              <h2 className="text-2xl md:text-3xl font-bold mt-10">Financing Options</h2>
+              <p className="text-[#464545]">
                 Flexible financing designed to suit your investment journey
               </p>
 
-              <div className="space-y-8">
+              <div className="space-y-8 mt-5">
                 {[
                   {
                     title: "Partner Banks",
@@ -185,10 +186,10 @@ export default function GuidePage() {
                     <div className="flex items-start gap-4 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-background/80 ">
                       <div className="w-3 h-3 bg-gradient-to-br from-primary to-primary/60 rounded-full mt-2"></div>
                       <div>
-                        <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-xl font-bold mt-2">
                           {option.title}
                         </h3>
-                        <p className="text-muted-foreground text-lg leading-relaxed">{option.description}</p>
+                        <p className="text-[#464545]">{option.description}</p>
                       </div>
                     </div>
                   </div>
@@ -205,8 +206,8 @@ export default function GuidePage() {
           <div
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
-            <p className="text-xl text-muted-foreground">Everything you need to know about investing with Luminara</p>
+            <h2 className="text-2xl md:text-3xl font-bold mt-10">Frequently Asked Questions</h2>
+            <p className="text-[#464545]">Everything you need to know about investing with Luminara</p>
           </div>
 
           <div className="space-y-6">
@@ -241,29 +242,26 @@ export default function GuidePage() {
             ].map((faq, index) => (
               <div
                 key={faq.id}
-                className={`border border-border rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 transform ${faq.delay} ${
-                  isVisible.faq ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                }`}
+                className={`border border-border rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 transform ${faq.delay} ${isVisible.faq ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  }`}
               >
                 <button
                   onClick={() => toggleFaq(faq.id)}
                   className="w-full px-8 py-6 text-left font-semibold text-lg flex justify-between items-center hover:bg-muted/30 transition-all duration-300 group"
                 >
-                  <span className="group-hover:text-primary transition-colors duration-300">{faq.question}</span>
+                  <span className="group-hover:text-primary transition-colors duration-300 text-xl font-bold mt-2">{faq.question}</span>
                   <span
-                    className={`transform transition-all duration-300 text-primary ${
-                      openFaq === faq.id ? "rotate-180 scale-110" : "group-hover:scale-110"
-                    }`}
+                    className={`transform transition-all duration-300 text-primary ${openFaq === faq.id ? "rotate-180 scale-110" : "group-hover:scale-110"
+                      }`}
                   >
                     ▼
                   </span>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    openFaq === faq.id ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openFaq === faq.id ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
-                  <div className="px-8 pb-6 text-muted-foreground text-lg leading-relaxed">{faq.answer}</div>
+                  <div className="px-8 pb-6 text-[#464545] leading-relaxed">{faq.answer}</div>
                 </div>
               </div>
             ))}

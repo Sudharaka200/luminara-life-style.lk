@@ -86,43 +86,45 @@ function Page() {
   }, [post, categoryFromURL, districtFromURL, priceRangeFromURL]);
 
   // ✅ Manual search (when user changes dropdowns)
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleSearch = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    let result = [...post];
+  let result = [...post];
 
-    if (category) {
-      result = result.filter((p) =>
-        p.title.toLowerCase().includes(category.toLowerCase())
-      );
-    }
+  if (category) {
+    result = result.filter((p) =>
+      p.title.toLowerCase().includes(category.toLowerCase())
+    );
+  }
 
-    if (district) {
-      result = result.filter(
-        (p) => p.location.toLowerCase() === district.toLowerCase()
-      );
-    }
+  if (district) {
+    result = result.filter(
+      (p) => p.location.toLowerCase().includes(district.toLowerCase())
+    );
+  }
 
-    if (priceRange) {
-      const [min, max] = (() => {
-        switch (priceRange) {
-          case "0-5m": return [0, 5_000_000];
-          case "5m-10m": return [5_000_000, 10_000_000];
-          case "10m-20m": return [10_000_000, 20_000_000];
-          case "20m-50m": return [20_000_000, 50_000_000];
-          case "50m-100m": return [50_000_000, 100_000_000];
-          case "100m+": return [100_000_000, Infinity];
-          default: return [0, Infinity];
-        }
-      })();
+  if (priceRange) {
+    const [min, max] = (() => {
+      switch (priceRange) {
+        case "0-5m": return [0, 5_000_000];
+        case "5m-10m": return [5_000_000, 10_000_000];
+        case "10m-20m": return [10_000_000, 20_000_000];
+        case "20m-50m": return [20_000_000, 50_000_000];
+        case "50m-100m": return [50_000_000, 100_000_000];
+        case "100m+": return [100_000_000, Infinity];
+        default: return [0, Infinity];
+      }
+    })();
 
-      result = result.filter(
-        (p) => Number(p.price) >= min && Number(p.price) <= max
-      );
-    }
+    result = result.filter((p) => {
+      const cleanPrice = Number(String(p.price).replace(/[^0-9]/g, ""));
+      return cleanPrice >= min && cleanPrice <= max;
+    });
+  }
 
-    setFiltered(result);
-  };
+  setFiltered(result);
+};
+
 
   return (
     <>
