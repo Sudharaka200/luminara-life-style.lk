@@ -68,9 +68,9 @@ export default function StoriesPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="mt-10 bg-gray-50">
         <div className="container-fluid mx-auto">
-          <div className="text-center mb-12 animate-section-header">
+          <div className="text-center animate-section-header">
             <h2 className="text-2xl md:text-3xl font-bold">
               What Our Investors & Residents Say
             </h2>
@@ -84,9 +84,9 @@ export default function StoriesPage() {
       </section>
 
       {/* Explore the Lifestyle Section */}
-      <section className="py-16 bg-white">
+      <section className=" bg-white">
         <div className="container-fluid mx-auto">
-          <div className="text-center mb-12 animate-section-header">
+          <div className="text-center animate-section-header">
             <h2 className="text-2xl md:text-3xl font-bold mt-10">Explore the Lifestyle</h2>
             <p className="text-[#464545]">
               Step inside the Luminara lifestyle through our gallery of projects, community events, and everyday
@@ -98,9 +98,9 @@ export default function StoriesPage() {
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="py-16 px-4 md:px-8 bg-gray-50" ref={addToRefs}>
+      <section className="py-10 px-4 md:px-8 bg-gray-50" ref={addToRefs}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 animate-section-header">
+          <div className="text-center mb-10 animate-section-header">
             <h2 className="text-2xl md:text-3xl font-bold mt-10">Upcoming Event</h2>
             <p className="text-[#464545]">
               Join us for our next investor Open Day this fall—experience our premium cabanas, meet our team, and
