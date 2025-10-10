@@ -171,7 +171,7 @@ function Page() {
           </div>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-4 gap-5 mt-5 md:mt-10'>
+        <div className='grid grid-cols-1 justify-center sm:grid-cols-2 gap-5 lg:grid-cols-4 mt-3 px-4'>
           <div className=''>
             <Image src={ManagerImg} alt='Manager' className='object-cover w-full mt-3 rounded-md' />
             <div className='mt-3'>
