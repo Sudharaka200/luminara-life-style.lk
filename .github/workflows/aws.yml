@@ -1,0 +1,42 @@
+name: Deploy Next.js Frontend to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            cd ${{ secrets.APP_DIR }}
+
+            echo "Pulling latest code"
+            git pull origin main
+
+            echo "Creating .env file"
+            cat > .env <<EOF
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+            NEXT_PUBLIC_MODE=${{ secrets.NEXT_PUBLIC_MODE }}
+            NODE_ENV=production
+            EOF
+
+            echo "Installing dependencies"
+            npm install --omit=dev
+
+            echo "Building Next.js app"
+            npm run build
+
+            echo "Restarting with PM2"
+            pm2 restart nextapp || pm2 start npm --name "nextapp" -- start
