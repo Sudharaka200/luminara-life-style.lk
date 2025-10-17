@@ -85,7 +85,7 @@ function Page() {
     setFiltered(result);
   }, [post, categoryFromURL, districtFromURL, priceRangeFromURL]);
 
-  // ✅ Manual search (when user changes dropdowns)
+  // Manual search (when user changes dropdowns)
  const handleSearch = (e: React.FormEvent) => {
   e.preventDefault();
 
