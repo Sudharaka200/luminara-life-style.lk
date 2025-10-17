@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Propertycard from '../components/card';
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
@@ -15,7 +15,7 @@ type Post = {
   baths: number;
 };
 
-function Page() {
+function ClientPage() {
   const [post, setPost] = useState<Post[]>([]);
   const [category, setCategory] = useState("");
   const [district, setDistrict] = useState("");
@@ -78,7 +78,10 @@ function Page() {
       })();
 
       result = result.filter(
-        (p) => Number(p.price) >= min && Number(p.price) <= max
+        (p) => {
+          const cleanPrice = Number(String(p.price).replace(/[^0-9]/g, ""));
+          return cleanPrice >= min && cleanPrice <= max;
+        }
       );
     }
 
@@ -261,14 +264,21 @@ function Page() {
                 link={`/PropertyHome/${p._id}`}
               />
             </div>
-          ))
-          };
-          {/* Properties */}
+          ))}
         </div>
+        {/* Properties */}
       </div>
       {/* area 2 */}
     </>
   )
+}
+
+function Page() {
+  return (
+    <Suspense fallback={<div>Loading search parameters...</div>}>
+      <ClientPage />
+    </Suspense>
+  );
 }
 
 export default Page
